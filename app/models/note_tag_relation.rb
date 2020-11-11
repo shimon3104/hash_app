@@ -1,0 +1,2 @@
+class NoteTagRelation < ApplicationRecord
+end

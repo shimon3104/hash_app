@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_11_063417) do
+ActiveRecord::Schema.define(version: 2020_11_11_063928) do
+
+  create_table "note_tag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "note_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["note_id"], name: "index_note_tag_relations_on_note_id"
+    t.index ["tag_id"], name: "index_note_tag_relations_on_tag_id"
+  end
 
   create_table "notes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -40,5 +49,7 @@ ActiveRecord::Schema.define(version: 2020_11_11_063417) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "note_tag_relations", "notes"
+  add_foreign_key "note_tag_relations", "tags"
   add_foreign_key "notes", "users"
 end
