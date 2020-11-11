@@ -1,1 +1,20 @@
 <%= link_to '新規メモ', new_note_path %>
+<div>
+  <div>
+    <% @notes.each do |note|%>
+      <div>
+        <p>
+          <%= note.title %>
+        </p>
+        <p>
+          <%= note.text %>
+        </p>
+        <p>
+          <%note.tags.each do |tag| %>
+            #<%=tag.name%>
+          <%end%>
+        </p>
+      </div>
+    <%end%>
+  </div>
+</div>

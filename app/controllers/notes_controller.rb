@@ -11,7 +11,7 @@ class NotesController < ApplicationController
     @note = NotesTag.new(note_params)
     if @note.valid?
       @note.save
-      return redirect_to root_path
+      return redirect_to user_path(@note.user_id)
     else
       render "new"
     end
