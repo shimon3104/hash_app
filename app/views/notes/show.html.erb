@@ -1,0 +1,18 @@
+<div>
+  <%= link_to '戻る', user_path(@note.id), method: :get %>
+</div>
+<div>
+  <%# <%= link_to '編集', %>
+</div>
+<div>
+  <%# <%= link_to '削除', , method: :delete %>
+</div>
+<%@note.tags.each do |tag| %>
+  #<%=tag.name%>
+<%end%>
+<div>
+  <%= @note.title %>
+</div>
+<div>
+  <%= @note.text %>
+</div>
