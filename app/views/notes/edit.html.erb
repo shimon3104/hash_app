@@ -1,0 +1,22 @@
+<div>
+  <%= link_to '戻る', user_path(current_user.id) %>
+</div>
+<%= form_with model: @note_tag, url: "/notes/#{@note.id}", method: :put, local: true do |f| %>
+  <div>
+    <div>
+      <%= f.label :title,  "タイトル" %>
+      <%= f.text_area :title %>
+    </div>
+    <div>
+      <%= f.label :text,  "テキスト" %>
+      <%= f.text_area :text %>
+    </div>
+    <div>
+      <%= f.label :name, "タグ" %>
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div>
+    <%= f.submit "Send" %>
+  </div>
+<% end %>
