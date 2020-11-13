@@ -17,6 +17,10 @@
     </div>
   </div>
   <div>
+      <%= f.label :status, "公開/非公開" %>
+      <%= f.select :status, Note.statuses.keys.map {|k| [k, k]}, {} %>
+    </div>
+  <div>
     <%= f.submit "Send" %>
   </div>
 <% end %>

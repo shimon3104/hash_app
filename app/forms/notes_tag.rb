@@ -1,7 +1,7 @@
 class NotesTag
 
   include ActiveModel::Model
-  attr_accessor :title, :text, :user_id, :name
+  attr_accessor :title, :text, :user_id, :status, :name
   with_options presence: true do
     validates :title
     validates :title
@@ -9,7 +9,7 @@ class NotesTag
   end
 
   def save
-    note = Note.create(title: title, text: text, user_id: user_id)
+    note = Note.create(title: title, text: text, user_id: user_id, status: status)
     tag = Tag.where(name: name).first_or_initialize
     tag.save
 

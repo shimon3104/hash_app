@@ -12,6 +12,10 @@
       <%= f.label :name, "タグ" %>
       <%= f.text_field :name %>
     </div>
+    <div>
+      <%= f.label :status, "公開/非公開" %>
+      <%= f.select :status, Note.statuses.keys.map {|k| [k, k]}, {} %>
+    </div>
   </div>
   <div>
     <%= f.submit "Send" %>

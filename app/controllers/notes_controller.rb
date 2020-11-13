@@ -25,7 +25,7 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
     tag = NoteTagRelation.find_by(note_id: @note.id)
     @tag = Tag.find(tag.tag_id)
-    @note_tag = NotesTag.new(title: @note.title, text: @note.text, user_id: @note.user_id, name: @tag.name)
+    @note_tag = NotesTag.new(title: @note.title, text: @note.text, status: @note.status, user_id: @note.user_id, name: @tag.name)
   end
 
   def update
@@ -48,7 +48,7 @@ class NotesController < ApplicationController
 
   private
   def note_tag_params
-    params.require(:notes_tag).permit(:title, :text, :name).merge(user_id: current_user.id)
+    params.require(:notes_tag).permit(:title, :text, :status, :name).merge(user_id: current_user.id)
   end
   
 end
