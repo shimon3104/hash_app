@@ -1,6 +1,5 @@
 class NotesController < ApplicationController
   def index
- 
   end
 
   def new
@@ -12,7 +11,7 @@ class NotesController < ApplicationController
     if @note.valid?
       @note.save
       return redirect_to user_path(@note.user_id)
-    else
+    else 
       render "new"
     end
   end
@@ -44,6 +43,10 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
     @note.destroy
     redirect_to user_path(@note.user_id)
+  end
+
+  def publish
+    @notes = Note.order('created_at DESC')
   end
 
   private

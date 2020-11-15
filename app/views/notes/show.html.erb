@@ -1,5 +1,6 @@
+<br>
 <div>
-  <%= link_to '戻る', user_path(@note.user_id), method: :get %>
+  <%= link_to 'マイページ', user_path(@note.user_id), method: :get %>
 </div>
 <div>
   <%= link_to '編集', edit_note_path(@note.id) %>
@@ -7,15 +8,22 @@
 <div>
   <%= link_to '削除', "/notes/#{@note.id}", method: :delete %>
 </div>
+<div>
+  <%= link_to 'Publish Notes', publish_notes_path %>
+</div>
+<br>
 <%@note.tags.each do |tag| %>
   #<%=tag.name%>
 <%end%>
+<br>
 <div>
   <%= @note.title %>
 </div>
+<br>
 <div>
   <%= @note.text %>
 </div>
+<br>
 <div>
   <%= @note.status %>
 </div>
