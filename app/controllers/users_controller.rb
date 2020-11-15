@@ -1,10 +1,16 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :edit, :update]
 
   def show
-    @notes = Note.all.order(created_at: :desc)
+    notes = Note.where(user_id: current_user.id)
+    @notes = notes.order(created_at: :desc)
   end
 
   def edit
+    user = User.find(params[:id])
+    unless user.id == current_user.id
+      redirect_to root_path
+    end
   end
 
   def update

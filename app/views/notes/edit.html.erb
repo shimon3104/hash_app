@@ -1,5 +1,5 @@
 <div>
-  <%= link_to '戻る', user_path(current_user.id) %>
+  <%= link_to '戻る', note_path(@note.id) %>
 </div>
 <%= form_with model: @note_tag, url: "/notes/#{@note.id}", method: :put, local: true do |f| %>
   <div>

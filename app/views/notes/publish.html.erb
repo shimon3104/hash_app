@@ -1,5 +1,5 @@
 <% @notes.each do |note| %>
-  <% if note.released? %>
+  <% if note.公開する? %>
     <br>
     <%= link_to note.title, note_path(note.id) %>
     <br>

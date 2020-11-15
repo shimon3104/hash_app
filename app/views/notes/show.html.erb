@@ -1,4 +1,5 @@
 <br>
+<% if @note.user_id == current_user.id %>
 <div>
   <%= link_to 'マイページ', user_path(@note.user_id), method: :get %>
 </div>
@@ -8,10 +9,8 @@
 <div>
   <%= link_to '削除', "/notes/#{@note.id}", method: :delete %>
 </div>
-<div>
-  <%= link_to 'Publish Notes', publish_notes_path %>
-</div>
 <br>
+<% end %>
 <%@note.tags.each do |tag| %>
   #<%=tag.name%>
 <%end%>

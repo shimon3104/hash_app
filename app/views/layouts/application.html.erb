@@ -21,8 +21,12 @@
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
         <% else%>
           <%= link_to 'ログイン', new_user_session_path, class: "login" %>
+          <br>
           <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
         <% end %> 
+        <div>
+          <%= link_to '公開ノートページへ', publish_notes_path %>
+        </div>
       </div>
     </header>
     <%= yield %>
