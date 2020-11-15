@@ -27,9 +27,20 @@ class NotesController < ApplicationController
   end
 
   def edit
-    tag = NoteTagRelation.find_by(note_id: @note.id)
-    @tag = Tag.find(tag.tag_id)
-    @note_tag = NotesTag.new(title: @note.title, text: @note.text, status: @note.status, user_id: @note.user_id, name: @tag.name)
+    # tags = NoteTagRelation.where(note_id: @note.id)
+    # tag_list = tags.pluck(:tag_id)
+    # tag_list.each do |tag_num|
+    #   tag = Tag.find(tag_num) 
+    #   tag_name = tag.name
+    #   @tag_names = tag_name.join(',')
+    # end
+    tag_name = []
+    @note.tags.each do |tag|
+      tag_n = tag.name
+      tag_name.push(tag_n)
+    end
+    @tag_names = tag_name.join(',')
+    @note_tag = NotesTag.new(title: @note.title, text: @note.text, status: @note.status, user_id: @note.user_id, name: @tag_names)
   end
 
   def update
@@ -37,7 +48,7 @@ class NotesController < ApplicationController
     @note_tag = NotesTag.new(note_tag_params)
     if @note_tag.valid?
       @note_tag.save
-      return redirect_to user_path(note.user_id)
+      return redirect_to user_path(@note.user_id)
     else
       render "edit"
     end

@@ -10,21 +10,12 @@ class NotesTag
 
   def save
     note = Note.create(title: title, text: text, user_id: user_id, status: status)
-    tag = Tag.where(name: name).first_or_initialize
-    tag.save
-
-    NoteTagRelation.create(note_id: note.id, tag_id: tag.id)
+    tag_list = name.split(",")
+    tag_list.each do |tag_name|
+      tag = Tag.where(name: tag_name).first_or_initialize
+      tag.save
+      NoteTagRelation.create(note_id: note.id, tag_id: tag.id)
+    end
   end
-
-  # def update
-    
-  #   note = Note.find(params[:id])
-    
-  #   tag = Tag.where(name: name).first_or_initialize
-  #   tag.save
-  #   note = NoteTagRelation.find(tag.id)
-  #   note.update(note_id: note_update.id, tag_id: tag.id)
-  #   note_update = note.update(title: title, text: text)
-  # end
 
 end

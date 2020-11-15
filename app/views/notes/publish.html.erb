@@ -3,7 +3,7 @@
     <br>
     <%= link_to note.title, note_path(note.id) %>
     <br>
-    <%note.tags.each do |tag| %>
+    <% note.tags.each do |tag| %>
       #<%= tag.name %>
       <br>
     <%end%>
