@@ -9,7 +9,6 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      sign_in(current_user, bypass: true)
       redirect_to root_path
     else
       render :edit
@@ -20,6 +19,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :email, :password)
+    params.require(:user).permit(:nickname, :email)
   end
 end

@@ -1,5 +1,3 @@
-<% if user_signed_in? %>
-  <%= link_to current_user.nickname, user_path(current_user.id) %>
-  <br>
-<% end %>
+<%= link_to current_user.nickname, user_path(current_user.id) %>
+<br>
 <%= link_to 'Publish Notes', publish_notes_path %>
