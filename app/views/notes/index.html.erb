@@ -1,2 +1,4 @@
-<h1>Notes#index</h1>
-<p>Find me in app/views/notes/index.html.erb</p>
+<% if user_signed_in? %>
+  <%= link_to "#{current_user.nickname}のマイページへ", user_path(current_user.id) %>
+  <br>
+<% end %>

@@ -1,11 +1,7 @@
 class Note < ApplicationRecord
   belongs_to :user
-  has_many :note_tag_relations
+  has_many :note_tag_relations, dependent: :destroy
   has_many :tags, through: :note_tag_relations
-  has_one :publish
-
-  with_options presence: true do
-    validates :title
-    validates :text
-  end
+  accepts_nested_attributes_for :note_tag_relations, allow_destroy: true
+  enum status:{非公開: 0, 公開する: 1}
 end

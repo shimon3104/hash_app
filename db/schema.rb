@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_11_064311) do
+ActiveRecord::Schema.define(version: 2020_11_15_021430) do
 
   create_table "note_tag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "note_id"
@@ -27,16 +27,8 @@ ActiveRecord::Schema.define(version: 2020_11_11_064311) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status", limit: 1, default: 1, null: false
     t.index ["user_id"], name: "index_notes_on_user_id"
-  end
-
-  create_table "publishes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "note_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["note_id"], name: "index_publishes_on_note_id"
-    t.index ["user_id"], name: "index_publishes_on_user_id"
   end
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -61,6 +53,4 @@ ActiveRecord::Schema.define(version: 2020_11_11_064311) do
   add_foreign_key "note_tag_relations", "notes"
   add_foreign_key "note_tag_relations", "tags"
   add_foreign_key "notes", "users"
-  add_foreign_key "publishes", "notes"
-  add_foreign_key "publishes", "users"
 end

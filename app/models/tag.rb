@@ -1,6 +1,6 @@
 class Tag < ApplicationRecord
-  has_many :note_tag_relations
+  has_many :note_tag_relations, dependent: :destroy
   has_many :notes, through: :note_tag_relations
 
-  validates :name, presence: true
+  validates :name, uniqueness: true
 end
