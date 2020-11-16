@@ -7,6 +7,8 @@ a {
 }
 
 header {
+  width: 100vw;
+  height: 15vh;
   padding: 5px 20px;
   display: flex;
   justify-content: space-between;
@@ -16,7 +18,7 @@ header {
 
 .top-link {
   font-size: 50px;
-  font-style: inherit;
+  font-family: sans-serif;
   font-weight: bold;
   color: black;
 }
@@ -27,15 +29,14 @@ header {
 
 .publish-link {
   font-size: 40px;
-  font-style: inherit;
+  font-family: sans-serif;
   color: black;
-  border: inset 2px black;
   background-color: FAFAFA;
 }
 
 .publish-comment {
-  font-size: 25px;
-  font-style: inherit;
+  font-size: 15px;
+  font-family: sans-serif;
   color: black;
 }
 
@@ -50,7 +51,7 @@ header {
 .header-right-content a {
   font-size: 11px;
   font-weight: bold;
-  font-style: inherit;
+  font-family: sans-serif;
   color: black;
   
 }

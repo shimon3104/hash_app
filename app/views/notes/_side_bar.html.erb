@@ -8,10 +8,13 @@
     <% @notes.each do |note|%>
       <div class="note">
         <div class="note-name">
-          <%= link_to note.title, note_path(note.id) %>
+          <p class="name-title">
+            Title:
+          </p>
+          <%= link_to " #{note.title}", note_path(note.id) %>
           <% note.tags.each do |tag| %>
             <div class="tag-name">
-              #<%= tag.name %>
+              <%= "# #{tag.name}" %>
             </div>
           <% end %>
         </div>

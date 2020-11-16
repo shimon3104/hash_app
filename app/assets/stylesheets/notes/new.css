@@ -1,0 +1,47 @@
+.main {
+  width: calc(100% - 200px);
+  padding: 20px;
+  background-color: #ffffff;
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+}
+
+.label {
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+.title-area {
+  padding: 10px;
+  font-size: 20px;
+}
+
+.text-area {
+  padding: 10px;
+  font-size: 20px;
+}
+
+.tag-area {
+  padding: 10px;
+  font-size: 20px;
+}
+
+.tag-comment {
+  margin-bottom: 10px;
+}
+
+.status-select {
+  width: 120px;
+  height: 40px;
+}
+
+.form-content-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.send-btn {
+  width: 100px;
+  height: 30px;
+}
