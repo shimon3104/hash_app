@@ -24,22 +24,22 @@
       </div>
       <div class='header-right'>
         <% if user_signed_in? %>
-        <div class='header-right-content'>
-          <%= link_to "To #{current_user.nickname}'s Page", user_path(current_user.id), class: "user-nickname" %>
-        </div>
-        <div class='header-right-content'>
-          <%= link_to 'Edit User Information', "/users/#{current_user.id}/edit", class: "user-edit" %>
-        </div>
-        <div class='header-right-content'>
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "logout" %>
-        </div>
+          <div class='header-right-content'>
+            <%= link_to "To #{current_user.nickname}'s Page", user_path(current_user.id), class: "user-nickname" %>
+          </div>
+          <div class='header-right-content'>
+            <%= link_to 'Edit User Information', "/users/#{current_user.id}/edit", class: "user-edit" %>
+          </div>
+          <div class='header-right-content'>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "logout" %>
+          </div>
         <% else%>
-        <div class='header-right-content'>
-          <%= link_to 'Login', new_user_session_path, class: "login" %>
-        </div>
-        <div class='header-right-content'>
-          <%= link_to 'Signup', new_user_registration_path, class: "sign-up" %>
-        </div>
+          <div class='header-right-content'>
+            <%= link_to 'Login', new_user_session_path, class: "login" %>
+          </div>
+          <div class='header-right-content'>
+            <%= link_to 'Signup', new_user_registration_path, class: "sign-up" %>
+          </div>
         <% end %> 
       </div>
     </header>

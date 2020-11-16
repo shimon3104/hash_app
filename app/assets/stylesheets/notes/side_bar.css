@@ -1,0 +1,43 @@
+.side-wrapper {
+  display: flex;
+ }
+ 
+.side_bar {
+  width: 200px;
+  height: 100vh;
+  background-color: #c3ecec;
+}
+
+.side-bar-header {
+  height: 100px;
+  padding: 0 20px;
+  background-color: #e3eeee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-note {
+  font-size: 15px;
+}
+
+.create-note a{
+  border: 1px solid ;
+  padding: 14px;
+  color: black;
+}
+
+
+.notes {
+  height: calc(100vh - 100px);
+  padding: 0 20px;
+  overflow: scroll;
+}
+
+.note {
+  padding: 20px 0 40px;
+}
+
+.note-name a {
+  color: black;
+}
