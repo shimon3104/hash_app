@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f8f8;
+}
+
+.top-link {
+  font-size: 50px;
+  font-style: inherit;
+  font-weight: bold;
+  color: black;
+}
+
+.header-middle {
+  text-align: center;
+}
+
+.publish-link {
+  font-size: 40px;
+  font-style: inherit;
+  color: black;
+  border: inset 2px black;
+  background-color: FAFAFA;
+}
+
+.publish-comment {
+  font-size: 25px;
+  font-style: inherit;
+  color: black;
+}
+
+.header-right-content {
+  padding: 2px;
+  margin-bottom: 3px;
+  text-align: center;
+  border: inset 1px black;
+  background-color: FAFAFA;
+}
+
+.header-right-content a {
+  font-size: 11px;
+  font-weight: bold;
+  font-style: inherit;
+  color: black;
+  
+}
