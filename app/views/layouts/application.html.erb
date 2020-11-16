@@ -10,6 +10,25 @@
   </head>
 
   <body>
+    <header>
+      <div>
+        <%= link_to "トップへ", root_path %>
+      </div>
+      <div class='nav'>
+        <% if user_signed_in? %>
+          <%= link_to 'ユーザー情報編集', "/users/#{current_user.id}/edit", class: "user-nickname" %>
+          <br>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+        <% else%>
+          <%= link_to 'ログイン', new_user_session_path, class: "login" %>
+          <br>
+          <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
+        <% end %> 
+        <div>
+          <%= link_to '公開ノートページへ', publish_notes_path %>
+        </div>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>

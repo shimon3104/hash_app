@@ -1,0 +1,29 @@
+<div>
+  <%= link_to '戻る', note_path(@note.id) %>
+</div>
+<%= form_with model: @note_tag, url: "/notes/#{@note.id}", method: :put, local: true do |f| %>
+  <div>
+    <div>
+      <%= f.label :title,  "タイトル" %>
+      <%= f.text_area :title %>
+    </div>
+    <div>
+      <%= f.label :text,  "テキスト" %>
+      <%= f.text_area :text %>
+    </div>
+    <div>
+      <%= f.label :name, "タグ" %>
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div>
+      <%= "※タグを複数入力する場合は','で区切って下さい。" %>
+    </div>
+  <div>
+      <%= f.label :status, "公開/非公開" %>
+      <%= f.select :status, Note.statuses.keys.map {|k| [k, k]}, {} %>
+    </div>
+  <div>
+    <%= f.submit "Send" %>
+  </div>
+<% end %>
