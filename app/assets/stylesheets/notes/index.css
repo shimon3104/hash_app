@@ -1,6 +1,9 @@
 .index-wrapper {
+  width: 100vw;
+  height: 85vh;
   padding: 20px 20px;
   text-align: center;
+  background: linear-gradient(45deg, #ffffff 0%, #64bdf5 100%);
 }
 
 .explanation-top {
