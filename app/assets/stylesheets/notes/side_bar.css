@@ -5,28 +5,45 @@
 .side_bar {
   width: 200px;
   height: 85vh;
-  background-color: #c3ecec;
+  background: linear-gradient(to right, #ffffff 0%, #b7fdff 100%);
 }
 
 .side-bar-header {
+  width: 100%;
   height: 100px;
   padding: 0 20px;
   background-color: #e3eeee;
+}
+
+.only-create {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.create-note {
-  font-size: 15px;
+.edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.create-note a{
+
+.note-link {
+  width: 45%;
+  height: 60%;
   border: 1px solid ;
-  padding: 14px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.note-link a{
+  font-size: 15px;
+  font-weight: bold;
   color: black;
 }
-
 
 .notes {
   height: calc(85vh - 100px);
@@ -35,15 +52,33 @@
 }
 
 .note {
-  padding: 20px 0 40px;
+  padding: 5px;
+  margin: 20px 0;
+  border: 1px solid;
 }
 
 .name-title {
+  font-size: 18px;
   font-weight: bold;
   display: inline;
 }
 
+.note-name {
+  margin-bottom: 10px;
+}
+
 .note-name a {
+  font-size: 18px;
   font-weight: bold;
-  color: blue;
+  color: rgb(45, 45, 250);
+}
+
+.tag-name {
+  font-size: 16px;
+  color: #919191;
+}
+
+.note-user {
+ margin-top: 10px;
+ text-align: right;
 }

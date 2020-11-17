@@ -1,24 +1,17 @@
-<div class="side_bar">
-  <div class="side-bar-header">
-    <div class="create-note">
-      <%= link_to "ノートを作成する", new_note_path %>
-    </div>
-  </div>
-  <div class="notes">
-    <% @notes.each do |note|%>
-      <div class="note">
-        <div class="note-name">
-          <p class="name-title">
-            Title:
-          </p>
-          <%= link_to " #{note.title}", edit_note_path(note.id) %>
-          <% note.tags.each do |tag| %>
-            <div class="tag-name">
-              <%= "# #{tag.name}" %>
-            </div>
-          <% end %>
-        </div>
+<div class="notes">
+  <% @notes.each do |note|%>
+    <div class="note">
+      <div class="note-name">
+        <p class="name-title">
+          Title:
+        </p>
+        <%= link_to " #{note.title}", edit_note_path(note.id) %>
+        <% note.tags.each do |tag| %>
+          <div class="tag-name">
+            <%= "# #{tag.name}" %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
