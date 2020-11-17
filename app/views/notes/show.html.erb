@@ -1,4 +1,60 @@
-<br>
+<div class="wrapper">
+  <div class="side_bar">
+    <div class="side_bar">
+      <div class="side-bar-header">
+        <div class="create-note">
+          <%= link_to "ノートを作成する", new_note_path %>
+        </div>
+      </div>
+      <div class="notes">
+        <% @notes.each do |note|%>
+          <% if note.公開する? %>
+            <div class="note">
+              <div class="note-name">
+                <p class="name-title">
+                  Title:
+                </p>
+                <%= link_to note.title, note_path(note.id) %>
+                <% note.tags.each do |tag| %>
+                  <div class="tag-name">
+                    <%= "# #{tag.name}" %>
+                  </div>
+                <% end %>
+                <div class='note-user' >
+                  <%= "by #{note.user.nickname}" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="show-wrapper">
+    <div class="show-contents">
+      <div class='show-title'>
+        <%= @note.title %>
+      </div>
+      <div class='show-tags'>
+        <%@note.tags.each do |tag| %>
+          <div class='show-tag'>
+            <%= "##{tag.name}　" %>
+          </div>
+        <%end%>
+      </div>
+      <div class='show-text'>
+        <%= @note.text %>
+      </div>
+      <div class='show-user' >
+        <%= "by #{@note.user.nickname}" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class=''>
+</div>
+
 <% if @note.user_id == current_user.id %>
 <div>
   <%= link_to 'マイページ', user_path(@note.user_id), method: :get %>
@@ -11,18 +67,3 @@
 </div>
 <br>
 <% end %>
-<%@note.tags.each do |tag| %>
-  #<%=tag.name%>
-<%end%>
-<br>
-<div>
-  <%= @note.title %>
-</div>
-<br>
-<div>
-  <%= @note.text %>
-</div>
-<br>
-<div>
-  <%= @note.status %>
-</div>

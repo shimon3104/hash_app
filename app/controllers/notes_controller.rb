@@ -23,6 +23,7 @@ class NotesController < ApplicationController
   end
 
   def show
+    @notes = Note.order('created_at DESC')
     unless @note.公開する?
       authenticate_user!
     end
