@@ -29,6 +29,8 @@ class NotesController < ApplicationController
   end
 
   def edit
+    notes = Note.where(user_id: current_user.id)
+    @notes = notes.order(created_at: :desc)
     tag_name = []
     @note.tags.each do |tag|
       tag_n = tag.name

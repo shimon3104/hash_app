@@ -11,7 +11,7 @@
           <p class="name-title">
             Title:
           </p>
-          <%= link_to " #{note.title}", note_path(note.id) %>
+          <%= link_to " #{note.title}", edit_note_path(note.id) %>
           <% note.tags.each do |tag| %>
             <div class="tag-name">
               <%= "# #{tag.name}" %>

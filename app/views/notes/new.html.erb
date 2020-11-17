@@ -4,38 +4,7 @@
   </div>
   <div class="main">
     <%= form_with model: @note, url: "/notes", class:'form-wrap', local: true do |f| %>
-      <div class='new-edit-contents'>
-        <div class='label'>
-          <%= f.label :title,  "タイトル" %>
-        </div>
-        <div class='form-content'>
-          <%= f.text_area :title, size: "65x1.5", class: 'title-area' %>
-        </div>
-        <div class='label'>
-          <%= f.label :text,  "テキスト" %>
-        </div>
-        <div class='form-content'>
-          <%= f.text_area :text, size: "65x6", class: 'text-area' %>
-        </div>
-        <div class='label'>
-          <%= f.label :name, "タグ" %>
-        </div>
-        <div class='form-content'>
-          <%= f.text_field :name, size: "66", class: 'tag-area' %>
-        </div>
-        <div class='tag-comment'>
-          <%= "※タグを複数入力する場合は' , 'で区切って下さい。" %>
-        </div>
-        <div class='label'>
-          <%= f.label :status, "公開/非公開" %>
-        </div>
-        <div class='form-content'>
-          <%= f.select :status, Note.statuses.keys.map {|k| [k, k]}, {}, class: 'status-select' %>
-        </div>
-        <div class='form-content-btn'>
-          <%= f.submit "Send", class: 'send-btn' %>
-        </div>
-      </div>
+      <%= render "main", f:f %>
     <% end %>
   </div>
 </div>
