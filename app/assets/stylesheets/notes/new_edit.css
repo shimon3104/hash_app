@@ -16,12 +16,12 @@
 }
 
 .label-wrap {
-  padding-left: 10px;
+  font-size: 25px;
+  font-family: sans-serif;
 }
 
 .label {
-  font-size: 25px;
-  font-family: sans-serif;
+  font-weight: bold;
 }
 
 .title-content {
