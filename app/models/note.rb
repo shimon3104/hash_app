@@ -43,4 +43,12 @@ class Note < ApplicationRecord
       Note.all
     end
   end
+
+  def self.search_tag_user(search)
+    if search != ""
+      Tag.where('name LIKE(?)', "%#{search}%")
+    else
+      Tag.all
+    end
+  end
 end

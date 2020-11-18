@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get 'search_text'
       get 'search_title_user'
       get 'search_text_user'
+      get 'search_tag_user'
     end
   end
   resources :users, only: [:show, :edit, :update]

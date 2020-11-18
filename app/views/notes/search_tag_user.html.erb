@@ -21,23 +21,23 @@
       <%= form.submit "検索", class: "search-btn" %>
     <% end %>
     <div class="">
-      <% @search_notes.each do |note|%>
-        <% if note.user_id == current_user.id %>
-          <div class="">
-            <div class="">
-              <p class="">Title:</p>
-              <%= link_to note.title, edit_note_path(note.id) %>
-            </div>
-            <% note.tags.each do |tag| %>
+      <% @search_tags.each do |tag|%>
+        <div class="">
+          <%= "# #{tag.name}" %>
+          <% tag.notes.each do |note| %>
+            <% if note.user_id == current_user.id %>
               <div class="">
-                <%= "# #{tag.name}" %>
+                <div class="">
+                  <p class="">Title:</p>
+                  <%= link_to note.title, edit_note_path(note.id) %>
+                </div>
+                <div class="">
+                  <%= note.text %>
+                </div>
               </div>
             <% end %>
-            <div class="">
-              <%= note.text %>
-            </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
