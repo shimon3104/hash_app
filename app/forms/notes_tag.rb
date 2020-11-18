@@ -4,7 +4,7 @@ class NotesTag
   attr_accessor :title, :text, :user_id, :status, :name
   with_options presence: true do
     validates :title
-    validates :title
+    validates :text
     validates :name
   end
 

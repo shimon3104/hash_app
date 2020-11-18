@@ -61,6 +61,14 @@ class NotesController < ApplicationController
     @notes = Note.order('created_at DESC')
   end
 
+  def search_text
+    @notes = Note.search_text(params[:keyword])
+  end
+
+  def search_title
+    @notes = Note.search_title(params[:keyword])
+  end
+
   private
   def note_tag_params
     params.require(:notes_tag).permit(:title, :text, :status, :name).merge(user_id: current_user.id)
