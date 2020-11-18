@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:show, :edit, :update]
-  resources :tags do
+  resources :tags, only: :show do
     collection do
       get 'search'
     end

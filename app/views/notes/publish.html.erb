@@ -1,36 +1,46 @@
-<div class='publish-wrapper' >
-  <%= form_with(url: search_title_notes_path, local: true, method: :get, class: "search-form") do |form| %>
-    <%= form.text_field :keyword, placeholder: "タイトルを検索する", class: "search-input" %>
-    <%= form.submit "検索", class: "search-btn" %>
-  <% end %>
-  <%= form_with(url: search_text_notes_path, local: true, method: :get, class: "search-form") do |form| %>
-    <%= form.text_field :keyword, placeholder: "テキストを検索する", class: "search-input" %>
-    <%= form.submit "検索", class: "search-btn" %>
-  <% end %>
-  <%= form_with(url: search_tags_path, local: true, method: :get, class: "search-form") do |form| %>
-    <%= form.text_field :keyword, placeholder: "タグを検索する", class: "search-input" %>
-    <%= form.submit "検索", class: "search-btn" %>
-  <% end %>
-  <% @notes.each do |note| %>
-    <% if note.公開する? %>
-      <div class="publish-content">
-        <div class="content-title">
-          <%= link_to note.title, note_path(note.id) %>
+<div class='publish-wrapper'>
+  <div class='search-wrapper'>
+    <div class='search-forms'>
+      <%= form_with(url: search_title_notes_path, local: true, method: :get, class: "search-form") do |form| %>
+        <%= form.text_field :keyword, placeholder: "タイトルを検索する", class: "search-input" %>
+        <%= form.submit "検索", class: "search-btn" %>
+      <% end %>
+    </div>
+    <div class='search-forms'>
+      <%= form_with(url: search_text_notes_path, local: true, method: :get, class: "search-form") do |form| %>
+        <%= form.text_field :keyword, placeholder: "テキストを検索する", class: "search-input" %>
+        <%= form.submit "検索", class: "search-btn" %>
+      <% end %>
+    </div>
+    <div class='search-forms'>
+      <%= form_with(url: search_tags_path, local: true, method: :get, class: "search-form") do |form| %>
+        <%= form.text_field :keyword, placeholder: "タグを検索する", class: "search-input" %>
+        <%= form.submit "検索", class: "search-btn" %>
+      <% end %>
+    </div>
+  </div>
+  <div class='contents-wrapper' >
+    <% @notes.each do |note| %>
+      <% if note.公開する? %>
+        <div class="publish-content">
+          <div class="content-title">
+            <%= link_to note.title, note_path(note.id) %>
+          </div>
+          <div class='content-text'>
+            <%= note.text %>
+          </div>  
+          <div class="content-tags">
+            <% note.tags.each do |tag| %>
+              <div class="content-tag">
+                <%= "# #{tag.name}　" %>
+              </div>
+            <%end%>
+          </div>
+          <div class='content-user' >
+            <%= "by #{note.user.nickname} " %>
+          </div>
         </div>
-        <div class='content-text'>
-          <%= note.text %>
-        </div>  
-        <div class="content-tags">
-          <% note.tags.each do |tag| %>
-            <div class="content-tag">
-              <%= "# #{tag.name}　" %>
-            </div>
-          <%end%>
-        </div>
-        <div class='content-user' >
-          <%= "by #{note.user.nickname} " %>
-        </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
