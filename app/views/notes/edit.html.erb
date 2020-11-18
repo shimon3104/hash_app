@@ -5,7 +5,7 @@
         <%= link_to "ノートを作成する", new_note_path %>
       </div>
       <div class="note-link">
-        <%= link_to '削除', "/notes/#{@note.id}", method: :delete %>
+        <%= link_to 'ノートの削除', "/notes/#{@note.id}", method: :delete %>
       </div>
     </div>
     <%= render "side_bar" %>

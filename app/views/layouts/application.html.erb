@@ -19,26 +19,26 @@
           <%= link_to 'To Published Notes', publish_notes_path, class: "publish-link" %>
         </div>
         <div class='header-middle-bottom'>
-          <P class='publish-comment'>開かれたノートへ</p>
+          <P class='publish-comment'>公開されたノートへ</p>
         </div>
       </div>
       <div class='header-right'>
         <% if user_signed_in? %>
           <div class='header-right-content'>
-            <%= link_to "To #{current_user.nickname}'s Page", user_path(current_user.id), class: "user-nickname" %>
+            <%= link_to "#{current_user.nickname}のページへ", user_path(current_user.id), class: "user-nickname" %>
           </div>
           <div class='header-right-content'>
-            <%= link_to 'Edit User Information', "/users/#{current_user.id}/edit", class: "user-edit" %>
+            <%= link_to 'ユーザー情報編集', "/users/#{current_user.id}/edit", class: "user-edit" %>
           </div>
           <div class='header-right-content'>
-            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "logout" %>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
           </div>
         <% else%>
           <div class='header-right-content'>
-            <%= link_to 'Login', new_user_session_path, class: "login" %>
+            <%= link_to 'ログイン', new_user_session_path, class: "login" %>
           </div>
           <div class='header-right-content'>
-            <%= link_to 'Signup', new_user_registration_path, class: "sign-up" %>
+            <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
           </div>
         <% end %> 
       </div>

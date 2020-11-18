@@ -2,48 +2,47 @@
   width: calc(100% - 200px);
   height: 85vh;
   padding: 30px 50px 10px;
-  overflow: scroll;
-  background: linear-gradient(45deg, #ffffff 0%, #64bdf5 100%);
 }
 
 .show-contents {
   width: 100%;
   height: 100%;
-  padding: 20px;
+  padding: 10px;
   border: 2px solid black;
   background-color: #ffffff;
 }
 
 .show-title {
-  height: calc(15% - 10px);
-  font-size: 25px;
+  height: 15%;
+  font-size: 33px;
   font-weight: bold;
-  margin-bottom: 10px;
+  padding: 5px;
   text-align: center;
 }
 
 .show-tags {
-  height: calc(10% - 10px);
-  margin-bottom: 10px;
+  height: 10%;
+  padding: 5px;
   display: flex;
   justify-content: flex-start;
 }
 
 .show-tag {
-  font-size: 16px;
+  font-size: 20px;
   color: darkgrey;
 }
 
 .show-text {
-  height: calc(65% - 10px);
+  height: 65%;
   font-size: 20px;
-  margin-bottom: 10px;
+  padding: 5px;
+  overflow: scroll;
 }
 
 .show-user {
   height: 10%;
-  display: block;
-  font-size: 16px;
+  padding: 5px;
+  font-size: 20px;
   color: #999;
   text-align: right;
 }

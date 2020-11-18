@@ -2,16 +2,16 @@
   <% @notes.each do |note|%>
     <div class="note">
       <div class="note-name">
-        <p class="name-title">
-          Title:
-        </p>
+        <div class="name-title">
+          タイトル:
+        </div>
         <%= link_to " #{note.title}", edit_note_path(note.id) %>
-        <% note.tags.each do |tag| %>
-          <div class="tag-name">
-            <%= "# #{tag.name}" %>
-          </div>
-        <% end %>
       </div>
+      <% note.tags.each do |tag| %>
+        <div class="tag-name">
+          <%= "# #{tag.name}" %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>
