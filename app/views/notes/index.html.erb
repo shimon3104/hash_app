@@ -1,4 +1,28 @@
-<% if user_signed_in? %>
-  <%= link_to "#{current_user.nickname}のマイページへ", user_path(current_user.id) %>
-  <br>
-<% end %>
+<div class='index-wrapper'>
+  <div class='explanation'>
+    <div class='explanation-top'>
+      About Hash
+    </div>
+    <div class='explanation-middle'>
+      May it help you organize the knowledge you have gathered.
+    </div>
+    <div class='explanation-bottom'>
+      情報を整理し、あなたのライフを充実させましょう。<br>
+      あなたのノウハウを必要としている人がいます。<br>
+      共有しましょう。<br>
+    </div>    
+  </div>
+  <div class='how-to-use'>
+    <div class='use'>
+      ① ログインしてノートを作ろう
+    </div>
+    <div class='use'>
+      ② タグをつけて整理しよう<br>
+      タグはいくつでも作れます
+    </div>
+    <div class='use'>
+      ③ ノートをみんなに共有しよう<br>
+      公開も非公開もあなた次第です
+    </div>
+  </div>
+</div>

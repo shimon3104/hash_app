@@ -1,36 +1,47 @@
-<%= form_with model: current_user, local: true do |f|%>
-  <%= render "devise/shared/error_messages", resource: f.object %>
-
-  <div class="field">
-    <%= f.label :nickname %> <em>(6 characters maximum)</em><br />
-    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+<div class="form-wrapper">
+  <div class="forms">
+    <div class="form-title">
+      新規登録をしましょう
+    </div>
+    <%= form_with model: current_user, local: true do |f|%>
+      <%= render "devise/shared/error_messages", resource: f.object %>
+      <div class="field">
+        <div class='label-wrap'>
+          <%= f.label :nickname, class: 'label'%>
+        </div>
+        <div class='form'>
+          <%= f.text_field :nickname, autofocus: true, class: 'form-area nickname', placeholder:"10 characters maximum" %>
+        </div>
+      </div>
+      <div class="field">
+        <div class='label-wrap'>
+          <%= f.label :email, class: 'label' %><br />
+        </div>
+        <div class='form'>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-area email'  %>
+        </div>
+      </div>
+      <div class="field">
+        <div class='label-wrap'>
+          <%= f.label :password, class: 'label' %>
+        </div>
+        <div class='form'>
+          <%= f.password_field :password, autocomplete: "new-password", class: 'form-area password', placeholder:"6 characters minimum" %>
+        </div>
+      </div>
+      <div class="field">
+        <div class='label-wrap'>
+          <%= f.label :password_confirmation, class: 'label' %>
+        </div>
+        <div class='form'>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-area password'  %>
+        </div>
+      </div>
+      <div class="btn-content">
+        <div class="form-btn">
+          <%= f.submit "Update", class: 'send-btn'  %>
+        </div>
+      </div>
     <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+</div>

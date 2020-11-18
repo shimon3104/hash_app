@@ -1,28 +1,53 @@
-<br>
-<% if @note.user_id == current_user.id %>
-<div>
-  <%= link_to 'マイページ', user_path(@note.user_id), method: :get %>
-</div>
-<div>
-  <%= link_to '編集', edit_note_path(@note.id) %>
-</div>
-<div>
-  <%= link_to '削除', "/notes/#{@note.id}", method: :delete %>
-</div>
-<br>
-<% end %>
-<%@note.tags.each do |tag| %>
-  #<%=tag.name%>
-<%end%>
-<br>
-<div>
-  <%= @note.title %>
-</div>
-<br>
-<div>
-  <%= @note.text %>
-</div>
-<br>
-<div>
-  <%= @note.status %>
+<div class="wrapper">
+  <div class="side_bar">
+    <div class="side_bar">
+      <div class="side-bar-header only-create">
+        <div class="note-link">
+          <%= link_to "戻る", publish_notes_path %>
+        </div>
+      </div>
+      <div class="notes">
+        <% @notes.each do |note|%>
+          <% if note.公開する? %>
+            <div class="note">
+              <div class="note-name">
+                <p class="name-title">
+                  Title:
+                </p>
+                <%= link_to note.title, note_path(note.id) %>
+              </div>
+              <% note.tags.each do |tag| %>
+                <div class="tag-name">
+                  <%= "# #{tag.name}" %>
+                </div>
+              <% end %>
+              <div class='note-user' >
+                <%= "by #{note.user.nickname}" %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="show-wrapper">
+    <div class="show-contents">
+      <div class='show-title'>
+        <%= @note.title %>
+      </div>
+      <div class='show-tags'>
+        <%@note.tags.each do |tag| %>
+          <div class='show-tag'>
+            <%= "##{tag.name}　" %>
+          </div>
+        <%end%>
+      </div>
+      <div class='show-text'>
+        <%= @note.text %>
+      </div>
+      <div class='show-user' >
+        <%= "by #{@note.user.nickname}" %>
+      </div>
+    </div>
+  </div>
 </div>

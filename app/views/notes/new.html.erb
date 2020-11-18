@@ -1,26 +1,15 @@
-<%= form_with model: @note, url: "/notes", class:'form-wrap', local: true do |f| %>
-  <div>
-    <div>
-      <%= f.label :title,  "タイトル" %>
-      <%= f.text_area :title %>
+<div class="wrapper">
+  <div class="side_bar">
+    <div class="side-bar-header only-create">
+      <div class="note-link">
+        <%= link_to "ノートを作成する", new_note_path %>
+      </div>
     </div>
-    <div>
-      <%= f.label :text,  "テキスト" %>
-      <%= f.text_area :text %>
-    </div>
-    <div>
-      <%= f.label :name, "タグ" %>
-      <%= f.text_field :name %>
-    </div>
-    <div>
-      <%= "※タグを複数入力する場合は','で区切って下さい。" %>
-    </div>
-    <div>
-      <%= f.label :status, "公開/非公開" %>
-      <%= f.select :status, Note.statuses.keys.map {|k| [k, k]}, {} %>
-    </div>
+    <%= render "side_bar" %>
   </div>
-  <div>
-    <%= f.submit "Send" %>
+  <div class="main">
+    <%= form_with model: @note, url: "/notes", class:'form-wrap', local: true do |f| %>
+      <%= render "main", f:f %>
+    <% end %>
   </div>
-<% end %>
+</div>

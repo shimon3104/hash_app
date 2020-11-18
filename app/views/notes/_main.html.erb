@@ -1,0 +1,45 @@
+<div class='form-contents'>
+  <div class='title-content'>
+    <div class='label-wrap'>
+      <%= f.label :title,  "タイトル" , class: 'label' %>
+    </div>
+    <div class='form'>
+      <%= f.text_area :title, class: 'title-area' %>
+    </div>
+  </div>
+  <div class='text-content'>
+    <div class='label-wrap'>
+      <%= f.label :text,  "テキスト", class: 'label' %>
+    </div>
+    <div class='form'>
+      <%= f.text_area :text, class: 'text-area' %>
+    </div>
+  </div>
+  <div class='tag-content'>
+    <div class='label-wrap'>
+      <%= f.label :name, "タグ", class: 'label' %>
+    </div>
+    <div class='form'>
+      <%= f.text_field :name, class: 'tag-area' %>
+    </div>
+    <div class='tag-comment'>
+      <%= "※タグを複数入力する場合は' , 'で区切って下さい。" %>
+    </div>
+  </div>
+  <div class='status-content'>
+    <div class='label-wrap'>
+      <%= f.label :status, "公開/非公開", class: 'label' %>
+    </div>
+    <div class='form'>
+      <%= f.select :status, Note.statuses.keys.map {|k| [k, k]}, {}, class: 'status-select' %>
+    </div>
+  </div>
+  <div class='btn-content'>
+    <div class='form-btn'>
+      <%= f.submit "保存する", class: 'send-btn' %>
+    </div>
+  </div>
+</div>
+
+<div class=''>
+</div>

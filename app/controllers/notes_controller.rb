@@ -8,6 +8,8 @@ class NotesController < ApplicationController
 
   def new
     @note= NotesTag.new
+    notes = Note.where(user_id: current_user.id)
+    @notes = notes.order(created_at: :desc)
   end
 
   def create
@@ -21,19 +23,15 @@ class NotesController < ApplicationController
   end
 
   def show
+    @notes = Note.order('created_at DESC')
     unless @note.公開する?
       authenticate_user!
     end
   end
 
   def edit
-    # tags = NoteTagRelation.where(note_id: @note.id)
-    # tag_list = tags.pluck(:tag_id)
-    # tag_list.each do |tag_num|
-    #   tag = Tag.find(tag_num) 
-    #   tag_name = tag.name
-    #   @tag_names = tag_name.join(',')
-    # end
+    notes = Note.where(user_id: current_user.id)
+    @notes = notes.order(created_at: :desc)
     tag_name = []
     @note.tags.each do |tag|
       tag_n = tag.name

@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HashApp</title>
+    <title>Hash</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-      <div>
-        <%= link_to "トップへ", root_path %>
+      <div class='header-left'>
+        <%= link_to "HASH", root_path, class: "top-link" %>
       </div>
-      <div class='nav'>
-        <% if user_signed_in? %>
-          <%= link_to 'ユーザー情報編集', "/users/#{current_user.id}/edit", class: "user-nickname" %>
-          <br>
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
-        <% else%>
-          <%= link_to 'ログイン', new_user_session_path, class: "login" %>
-          <br>
-          <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
-        <% end %> 
-        <div>
-          <%= link_to '公開ノートページへ', publish_notes_path %>
+      <div class='header-middle'>
+        <div class='header-middle-top'>
+          <%= link_to 'To Published Notes', publish_notes_path, class: "publish-link" %>
         </div>
+        <div class='header-middle-bottom'>
+          <P class='publish-comment'>公開されたノートへ</p>
+        </div>
+      </div>
+      <div class='header-right'>
+        <% if user_signed_in? %>
+          <div class='header-right-content'>
+            <%= link_to "#{current_user.nickname}のページへ", user_path(current_user.id), class: "user-nickname" %>
+          </div>
+          <div class='header-right-content'>
+            <%= link_to 'ユーザー情報編集', "/users/#{current_user.id}/edit", class: "user-edit" %>
+          </div>
+          <div class='header-right-content'>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
+          </div>
+        <% else%>
+          <div class='header-right-content'>
+            <%= link_to 'ログイン', new_user_session_path, class: "login" %>
+          </div>
+          <div class='header-right-content'>
+            <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
+          </div>
+        <% end %> 
       </div>
     </header>
     <%= yield %>

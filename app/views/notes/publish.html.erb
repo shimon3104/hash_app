@@ -1,13 +1,24 @@
-<% @notes.each do |note| %>
-  <% if note.公開する? %>
-    <br>
-    <%= link_to note.title, note_path(note.id) %>
-    <br>
-    <% note.tags.each do |tag| %>
-      #<%= tag.name %>
-      <br>
-    <%end%>
-    <%= note.user.nickname %>
-    <br>
+<div class='publish-wrapper' >
+  <% @notes.each do |note| %>
+    <% if note.公開する? %>
+      <div class="publish-content">
+        <div class="content-title">
+          <%= link_to note.title, note_path(note.id) %>
+        </div>
+        <div class='content-text'>
+          <%= note.text %>
+        </div>  
+        <div class="content-tags">
+          <% note.tags.each do |tag| %>
+            <div class="content-tag">
+              <%= "# #{tag.name}　" %>
+            </div>
+          <%end%>
+        </div>
+        <div class='content-user' >
+          <%= "by #{note.user.nickname} " %>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
