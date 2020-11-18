@@ -11,7 +11,7 @@
     <%= form.submit "検索", class: "search-btn" %>
   <% end %>
 <div class="notes">
-  <% @notes.each do |note|%>
+  <% @search_notes.each do |note|%>
     <% if note.公開する? %>
       <div class="note">
         <div class="note-name">

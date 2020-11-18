@@ -5,7 +5,7 @@
         <%= link_to "ノートを作成する", new_note_path %>
       </div>
     </div>
-    <%= render "notes/side_bar" %>
+    <%= render "side_bar" %>
   </div>
   <div class="main">
     <%= form_with(url: search_title_user_notes_path, local: true, method: :get, class: "search-form") do |form| %>
@@ -20,5 +20,25 @@
       <%= form.text_field :keyword, placeholder: "タグを検索する", class: "search-input" %>
       <%= form.submit "検索", class: "search-btn" %>
     <% end %>
+    <div class="">
+      <% @search_notes.each do |note|%>
+        <% if note.user_id == current_user.id %>
+          <div class="">
+            <div class="">
+              <p class="">Title:</p>
+              <%= link_to note.title, edit_note_path(note.id) %>
+            </div>
+            <% note.tags.each do |tag| %>
+              <div class="">
+                <%= "# #{tag.name}" %>
+              </div>
+            <% end %>
+            <div class="">
+              <%= note.text %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

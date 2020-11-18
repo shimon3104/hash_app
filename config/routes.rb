@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   resources :notes do
     collection do
       get 'publish'
-      get 'search_text'
       get 'search_title'
+      get 'search_text'
+      get 'search_title_user'
+      get 'search_text_user'
     end
   end
   resources :users, only: [:show, :edit, :update]

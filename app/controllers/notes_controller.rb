@@ -61,12 +61,24 @@ class NotesController < ApplicationController
     @notes = Note.order('created_at DESC')
   end
 
-  def search_text
-    @notes = Note.search_text(params[:keyword])
+  def search_title
+    @search_notes = Note.search_title(params[:keyword])
   end
 
-  def search_title
-    @notes = Note.search_title(params[:keyword])
+  def search_text
+    @search_notes = Note.search_title(params[:keyword])
+  end
+
+  def search_title_user
+    @search_notes = Note.search_title(params[:keyword])
+    notes = Note.where(user_id: current_user.id)
+    @notes = notes.order(created_at: :desc)
+  end
+
+  def search_text_user
+    @search_notes = Note.search_title(params[:keyword])
+    notes = Note.where(user_id: current_user.id)
+    @notes = notes.order(created_at: :desc)
   end
 
   private

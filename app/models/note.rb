@@ -10,6 +10,15 @@ class Note < ApplicationRecord
     validates :text
   end
 
+  
+  def self.search_title(search)
+    if search != ""
+      Note.where('title LIKE(?)', "%#{search}%")
+    else
+      Note.all
+    end
+  end
+
   def self.search_text(search)
     if search != ""
       Note.where('text LIKE(?)', "%#{search}%")
@@ -18,9 +27,18 @@ class Note < ApplicationRecord
     end
   end
 
-  def self.search_title(search)
+
+  def self.search_title_user(search)
     if search != ""
       Note.where('title LIKE(?)', "%#{search}%")
+    else
+      Note.all
+    end
+  end
+
+  def self.search_text_user(search)
+    if search != ""
+      Note.where('text LIKE(?)', "%#{search}%")
     else
       Note.all
     end
