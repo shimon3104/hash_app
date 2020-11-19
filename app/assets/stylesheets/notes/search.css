@@ -1,0 +1,104 @@
+/* 検索フォーム */
+/* notes/ publish, search_title, search_text, search_user _title, search_user _text, search_user_tag */
+/* tags/ show,search */
+/* users/ show */
+
+.search-wrapper {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-forms {
+  margin-bottom: 5px;
+}
+
+.search-form {
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+.search-input {
+  width: 300px;
+  padding: 0 10px;
+  margin-right: 10px;
+}
+
+.search-btn {
+  width: 80px;
+}
+
+/* 検索結果 */
+.keyword {
+  height: 40px;
+  padding: 5px;
+  margin: 0 auto;
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: center;
+  background-color: #c9ff04;
+  border-radius: 9px;
+  display: table;
+}
+
+.keyword a {
+  display: block;
+  color: #006eff;
+}
+
+.search-tag {
+  width: calc((100% - 40px) / 5);
+  height: 40px;
+  padding: 5px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border-radius: 9px;
+  text-align: center;
+}
+
+.search-tag a {
+  font-size: 20px;
+  font-family: sans-serif;
+  color:#006eff;
+}
+/* notes/ search_title, search_text */
+/* tags/ show,search */
+
+
+
+
+
+/* 検索結果 */
+/* notes/ search_user _title, search_user _text, search_user_tag */
+.search-results {
+  
+}
+
+.search-result {
+  
+}
+
+.result-titles {
+  
+}
+
+.title {
+
+}
+.left {
+
+}
+
+.right {
+
+}
+
+.result-tag {
+
+}
+
+.result-text {
+
+}

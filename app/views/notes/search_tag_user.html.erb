@@ -8,26 +8,15 @@
     <%= render "side_bar" %>
   </div>
   <div class="main">
-    <div class='search-wrapper'>
-      <div class='search-forms'>
-        <%= form_with(url: search_title_user_notes_path, local: true, method: :get, class: "search-form") do |form| %>
-          <%= form.text_field :keyword, placeholder: "タイトルを検索する", class: "search-input" %>
-          <%= form.submit "検索", class: "search-btn" %>
-        <% end %>
-      </div>
-      <div class='search-forms'>
-        <%= form_with(url: search_text_user_notes_path, local: true, method: :get, class: "search-form") do |form| %>
-          <%= form.text_field :keyword, placeholder: "テキストを検索する", class: "search-input" %>
-          <%= form.submit "検索", class: "search-btn" %>
-        <% end %>
-      </div>
-      <div class='search-forms'>
-        <%= form_with(url: search_tag_user_notes_path, local: true, method: :get, class: "search-form") do |form| %>
-          <%= form.text_field :keyword, placeholder: "タグを検索する", class: "search-input" %>
-          <%= form.submit "検索", class: "search-btn" %>
-        <% end %>
-      </div>
-    </div>
+    <%= render "search_user_form"%>
+    <div class="keyword">
+    <% unless @keyword == "" %>
+      <%= "「#{@keyword}」を含むタグの検索結果"%>
+    <% else %>
+      <%= "全てのタグの検索結果"%>
+    <% end %>
+    <%= link_to "前の画面に戻る", :back %>
+  </div>
     <div class="">
       <% @search_tags.each do |tag|%>
         <div class="">

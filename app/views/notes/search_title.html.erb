@@ -1,43 +1,12 @@
-<div class='search-wrapper'>
-      <div class='search-forms'>
-        <%= form_with(url: search_title_notes_path, local: true, method: :get, class: "search-form") do |form| %>
-          <%= form.text_field :keyword, placeholder: "タイトルを検索する", class: "search-input" %>
-          <%= form.submit "検索", class: "search-btn" %>
-        <% end %>
-      </div>
-      <div class='search-forms'>
-        <%= form_with(url: search_text_notes_path, local: true, method: :get, class: "search-form") do |form| %>
-          <%= form.text_field :keyword, placeholder: "テキストを検索する", class: "search-input" %>
-          <%= form.submit "検索", class: "search-btn" %>
-        <% end %>
-      </div>
-      <div class='search-forms'>
-        <%= form_with(url: search_tags_path, local: true, method: :get, class: "search-form") do |form| %>
-          <%= form.text_field :keyword, placeholder: "タグを検索する", class: "search-input" %>
-          <%= form.submit "検索", class: "search-btn" %>
-        <% end %>
-      </div>
-    </div>
-<div class="notes">
-  <% @search_notes.each do |note|%>
-    <% if note.公開する? %>
-      <div class="note">
-        <div class="note-name">
-          <p class="name-title">Title:</p>
-          <%= note.title %>
-        </div>
-        <% note.tags.each do |tag| %>
-        <div class="tag-name">
-          <%= "# #{tag.name}" %>
-        </div>
-        <% end %>
-        <div class="note-name">
-          <%= note.text %>
-        </div>
-        <div class='note-user' >
-          <%= "by #{note.user.nickname}" %>
-        </div>
-      </div>
+<div class='publish-wrapper'>
+  <%= render "search_form"%>
+  <div class="keyword">
+    <% unless @keyword == "" %>
+      <%= "「#{@keyword}」を含むタイトルの検索結果"%>
+    <% else %>
+      <%= "全てのタイトルの検索結果"%>
     <% end %>
-  <% end %>
+    <%= link_to "前の画面に戻る", :back %>
+  </div>
+  <%= render "search_result"%>
 </div>

@@ -7,45 +7,19 @@
     #89e1f7 50%,
     #70bff8 100%
   );
-}
-
-.search-wrapper {
-  height: 25%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.search-forms {
-  margin-bottom: 5px;
-}
-
-.search-form {
-  font-size: 20px;
-  font-family: sans-serif;
-}
-
-.search-input {
-  width: 300px;
-  padding: 0 10px;
-  margin-right: 10px;
-}
-
-.search-btn {
-  width: 80px;
+  overflow: scroll;
 }
 
 .contents-wrapper {
-  height: 75%;
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  overflow: scroll;
 }
 
 .publish-content {
   width: calc((100% - 40px) / 3);
-  height: calc((100% - 20px) / 2);
+  height: 280px;
   padding: 5px 10px 0;
   margin-bottom: 30px;
   background-color: #ffffff;
