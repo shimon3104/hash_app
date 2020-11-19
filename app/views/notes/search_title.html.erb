@@ -1,0 +1,12 @@
+<div class='publish-wrapper'>
+  <%= render "search_form"%>
+  <div class="keyword">
+    <% unless @keyword == "" %>
+      <%= "「#{@keyword}」を含むタイトルの検索結果"%>
+    <% else %>
+      <%= "全てのタイトルの検索結果"%>
+    <% end %>
+    <%= link_to "前の画面に戻る", :back %>
+  </div>
+  <%= render "search_result"%>
+</div>

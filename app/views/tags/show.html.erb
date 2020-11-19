@@ -1,7 +1,11 @@
 <div class='publish-wrapper'>
-  <%= render "search_form"%>
+  <%= render "notes/search_form"%>
+  <div class="keyword">
+    <%= "# 「#{@tag.name}」 タグの一覧" %>
+    <%= link_to "前の画面に戻る", :back %>
+  </div>
   <div class='contents-wrapper' >
-    <% @notes.each do |note| %>
+    <% @tag.notes.each do |note|%>
       <% if note.公開する? %>
         <div class="publish-content">
           <div class="content-title">
@@ -13,22 +17,15 @@
           </div>
           <div class='content-text'>
             <%= note.text %>
-          </div>  
-          <div class="content-tags">
-            <% note.tags.each do |tag| %>
-              <div class="content-tag">
-                <%= "# #{tag.name}　" %>
-              </div>
-            <%end%>
           </div>
           <% if note.user_id == current_user.id %>
           <div class='content-current-user'>
           <% else %>
           <div class='content-user'>
           <% end %>
-            <%= "by #{note.user.nickname} " %>
+            <%= "by #{note.user.nickname}" %>
           </div>
-        </div>
+        </div>          
       <% end %>
     <% end %>
   </div>

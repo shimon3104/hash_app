@@ -1,0 +1,45 @@
+<div class="wrapper">
+  <div class="side_bar">
+    <div class="side-bar-header only-create">
+      <div class="note-link">
+        <%= link_to "ノートを作成する", new_note_path %>
+      </div>
+    </div>
+    <%= render "side_bar" %>
+  </div>
+  <div class="main">
+    <%= render "search_user_form"%>
+    <div class="keyword">
+      <% unless @keyword == "" %>
+        <%= "「#{@keyword}」を含むタグの検索結果"%>
+      <% else %>
+        <%= "全てのタグの検索結果"%>
+      <% end %>
+      <%= link_to "前の画面に戻る", :back %>
+    </div>
+    <div class="search-tag-results">
+      <% @search_tags.each do |tag|%>
+      <div class="search-tag-result">
+        <div class="search-user-tag">
+          <%= "# #{tag.name}を持つ#{current_user.nickname}のノート" %>
+        </div>
+        <% tag.notes.each do |note| %>
+          <% if note.user_id == current_user.id %>
+            <div class="result-tag-note">
+              <div class="note-user-top">
+                <div class="note-user-title">
+                  <div class="title left">タイトル:</div>
+                  <%= link_to note.title, edit_note_path(note.id), class: "title right" %>
+                </div>
+              </div>
+              <div class="note-user-text">
+                <%= note.text %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

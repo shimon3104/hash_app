@@ -1,0 +1,32 @@
+<div class='contents-wrapper' >
+  <% @search_notes.each do |note|%>
+    <% if note.公開する? %>
+      <div class="publish-content">
+        <div class="content-title">
+          <% if note.user_id == current_user.id %>
+            <%= link_to note.title, edit_note_path(note.id) %>
+          <% else %>
+            <%= link_to note.title, note_path(note.id) %>
+          <% end %>
+        </div>
+        <div class="content-tags">
+          <% note.tags.each do |tag| %>
+            <div class="content-tag">
+              <%= "# #{tag.name}" %>
+            </div>
+          <% end %>
+        </div>
+        <div class='content-text'>
+          <%= note.text %>
+        </div>
+        <% if note.user_id == current_user.id %>
+        <div class='content-current-user'>
+        <% else %>
+        <div class='content-user'>
+        <% end %>
+          <%= "by #{note.user.nickname}" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

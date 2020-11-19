@@ -1,0 +1,18 @@
+<div class='publish-wrapper'>
+  <%= render "notes/search_form"%>
+  <div class="keyword">
+    <% unless @keyword == "" %>
+      <%= "「#{@keyword}」を含むタグの検索結果"%>
+    <% else %>
+      <%= "全てのタグの検索結果"%>
+    <% end %>
+    <%= link_to "前の画面に戻る", :back %>
+  </div>
+  <div class='contents-wrapper' >
+    <% @tags.each do |tag|%>
+      <div class="search-tag">
+        <%= link_to "# #{tag.name}", tag_path(tag.id) %>
+      </div>
+    <% end %>
+  </div>
+</div>

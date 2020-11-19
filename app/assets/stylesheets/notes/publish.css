@@ -1,20 +1,25 @@
 .publish-wrapper {
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   height: 85vh;
+  padding: 20px;
   background: radial-gradient(
     circle 400px at center,
     #57f6fe 0%,
     #89e1f7 50%,
     #70bff8 100%
   );
+  overflow: scroll;
+}
+
+.contents-wrapper {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .publish-content {
   width: calc((100% - 40px) / 3);
-  height: calc((100% - 40px) / 2);
+  height: 280px;
   padding: 5px 10px 0;
   margin-bottom: 30px;
   background-color: #ffffff;
@@ -23,7 +28,7 @@
 }
 
 .content-title {
-  height: calc(15% - 10px);
+  height: 15%;
   margin-bottom: 10px;
   text-align: center;
 }
@@ -36,7 +41,7 @@
 }
 
 .content-text {
-  height: calc(65% - 10px);
+  height: calc(55% - 10px);
   font-size: 20px;
   font-family: sans-serif;
   margin-bottom: 10px;
@@ -44,7 +49,7 @@
 }
 
 .content-tags {
-  height: 10%;
+  height: calc(15% - 5px);
   display: flex;
   justify-content: flex-start;
 }
@@ -56,10 +61,20 @@
 }
 
 .content-user {
-  height: 10%;
+  height: calc(15% - 5px);
   display: block;
   font-size: 16px;
   font-family: sans-serif;
   color: #999;
   text-align: right;
+}
+
+.content-current-user {
+  height: calc(15% - 5px);
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: red;
+  text-align: right;
+  border-radius: 9px;
 }
