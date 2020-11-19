@@ -5,20 +5,28 @@
     <%= link_to "前の画面に戻る", :back %>
   </div>
   <div class='contents-wrapper' >
-    <div class="publish-content">
-      <% @tag.notes.each do |note|%>
-        <% if note.公開する? %>
+    <% @tag.notes.each do |note|%>
+      <% if note.公開する? %>
+        <div class="publish-content">
           <div class="content-title">
-            <%= link_to note.title, note_path(note.id) %>
+            <% if note.user_id == current_user.id %>
+              <%= link_to note.title, edit_note_path(note.id) %>
+            <% else %>
+              <%= link_to note.title, note_path(note.id) %>
+            <% end %>
           </div>
           <div class='content-text'>
             <%= note.text %>
           </div>
-          <div class='content-user' >
+          <% if note.user_id == current_user.id %>
+          <div class='content-current-user'>
+          <% else %>
+          <div class='content-user'>
+          <% end %>
             <%= "by #{note.user.nickname}" %>
           </div>
-        <% end %>
+        </div>          
       <% end %>
-    </div>
+    <% end %>
   </div>
 </div>

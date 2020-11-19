@@ -6,9 +6,9 @@ class Tag < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      Tag.where('name LIKE(?)', "%#{search}%")
+      Tag.where('name LIKE(?)', "%#{search}%").order('created_at DESC')
     else
-      Tag.all
+      Tag.order('created_at DESC')
     end
   end
 end

@@ -13,42 +13,42 @@ class Note < ApplicationRecord
   
   def self.search_title(search)
     if search != ""
-      Note.where('title LIKE(?)', "%#{search}%")
+      Note.where('title LIKE(?)', "%#{search}%").order('created_at DESC')
     else
-      Note.all
+      Note.order('created_at DESC')
     end
   end
 
   def self.search_text(search)
     if search != ""
-      Note.where('text LIKE(?)', "%#{search}%")
+      Note.where('text LIKE(?)', "%#{search}%").order('created_at DESC')
     else
-      Note.all
+      Note.order('created_at DESC')
     end
   end
 
 
   def self.search_title_user(search)
     if search != ""
-      Note.where('title LIKE(?)', "%#{search}%")
+      Note.where('title LIKE(?)', "%#{search}%").order('created_at DESC')
     else
-      Note.all
+      Note.order('created_at DESC')
     end
   end
 
   def self.search_text_user(search)
     if search != ""
-      Note.where('text LIKE(?)', "%#{search}%")
+      Note.where('text LIKE(?)', "%#{search}%").order('created_at DESC')
     else
-      Note.all
+      Note.order('created_at DESC')
     end
   end
 
   def self.search_tag_user(search)
     if search != ""
-      Tag.where('name LIKE(?)', "%#{search}%")
+      Tag.where('name LIKE(?)', "%#{search}%").order('created_at DESC')
     else
-      Tag.all
+      Tag.order('created_at DESC')
     end
   end
 end

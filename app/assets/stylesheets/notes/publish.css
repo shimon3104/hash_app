@@ -14,7 +14,7 @@
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .publish-content {
@@ -67,4 +67,14 @@
   font-family: sans-serif;
   color: #999;
   text-align: right;
+}
+
+.content-current-user {
+  height: calc(15% - 5px);
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: red;
+  text-align: right;
+  border-radius: 9px;
 }

@@ -17,20 +17,24 @@
     <% end %>
     <%= link_to "前の画面に戻る", :back %>
   </div>
-    <div class="">
+    <div class="search-results">
       <% @search_notes.each do |note|%>
         <% if note.user_id == current_user.id %>
-          <div class="">
-            <div class="">
-              <p class="">Title:</p>
-              <%= link_to note.title, edit_note_path(note.id) %>
-            </div>
-            <% note.tags.each do |tag| %>
-              <div class="">
-                <%= "# #{tag.name}" %>
+          <div class="search-result">
+            <div class="result-top">
+              <div class="result-titles">
+                <div class="title left">タイトル:</div>
+                <%= link_to note.title, edit_note_path(note.id), class: "title right" %>
               </div>
-            <% end %>
-            <div class="">
+              <div class="result-tags">
+                <% note.tags.each do |tag| %>
+                  <div class="result-tag">
+                    <%= "##{tag.name}" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="result-text">
               <%= note.text %>
             </div>
           </div>
