@@ -9,7 +9,7 @@
   </div>
   <div class="main">
     <%= form_with model: @note, url: "/notes", class:'form-wrap', local: true do |f| %>
-      <%= render "main", f:f %>
+      <%= render "new_edit", f:f %>
     <% end %>
   </div>
 </div>
