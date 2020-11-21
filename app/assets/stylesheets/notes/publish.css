@@ -1,3 +1,9 @@
+/* 公開ノート画面 */
+/* notes/publish */
+/* 公開ノート検索結果  */
+/* notes/_search_result, search_title, search_text */
+/* tags/show, search */
+
 .publish-wrapper {
   height: 85vh;
   padding: 20px;
@@ -60,15 +66,6 @@
   color: darkgrey;
 }
 
-.content-user {
-  height: calc(15% - 5px);
-  display: block;
-  font-size: 16px;
-  font-family: sans-serif;
-  color: #999;
-  text-align: right;
-}
-
 .content-current-user {
   height: calc(15% - 5px);
   font-size: 16px;
@@ -77,4 +74,13 @@
   color: red;
   text-align: right;
   border-radius: 9px;
+}
+
+.content-user {
+  height: calc(15% - 5px);
+  display: block;
+  font-size: 16px;
+  font-family: sans-serif;
+  color: #999;
+  text-align: right;
 }

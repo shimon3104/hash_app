@@ -1,3 +1,7 @@
+/* 新規登録/ログイン/ユーザー情報編集画面 */
+/* devise/registrations/ new,sessions/new,shared/_error_messages */
+/* users/edit */
+
 .form-wrapper {
   width: 100vw;
   height: 85vh;
