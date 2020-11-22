@@ -4,20 +4,21 @@
       <div class="search-result">
         <div class="result-top">
           <div class="result-titles">
-            <div class="title left">タイトル:</div>
-              <%= link_to note.title, edit_note_path(note.id), class: "title right" %>
+            <div class="title left">
+            タイトル:
             </div>
-            <div class="result-tags">
-              <% note.tags.each do |tag| %>
-                <div class="result-tag">
-                  <%= "##{tag.name}" %>
-                </div>
-              <% end %>
-            </div>
+            <%= link_to note.title, edit_note_path(note.id), class: "title right" %>
           </div>
-          <div class="result-text">
-            <%= note.text %>
+          <div class="result-tags">
+            <% note.tags.each do |tag| %>
+              <div class="result-tag">
+                <%= "##{tag.name}" %>
+              </div>
+            <% end %>
           </div>
+        </div>
+        <div class="result-text">
+          <%= note.text %>
         </div>
       </div>
     <% end %>

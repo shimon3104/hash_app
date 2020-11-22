@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :publish]
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show, :publish, :search_title, :search_text ]
+  before_action :set_note, only: [:edit, :show, :update, :destroy]
   before_action :set_notes, only: [:new, :edit, :search_title_user, :search_text_user, :search_tag_user]
   before_action :set_keyword, only: [:search_title, :search_text, :search_title_user, :search_text_user, :search_tag_user]
   before_action :move_to_index, only: [:edit, :update, :destroy]
@@ -85,7 +85,11 @@ class NotesController < ApplicationController
   end
   
   def set_note
-    @note = Note.find(params[:id])
+    if Note.find_by(id: params[:id]).nil?
+      return redirect_to root_path
+    else
+      @note = Note.find(params[:id])
+    end
   end
 
   def set_notes
