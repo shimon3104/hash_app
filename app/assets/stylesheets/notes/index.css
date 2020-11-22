@@ -9,17 +9,19 @@
     #89e1f7 50%,
     #70bff8 100%
   );
+  overflow: scroll;
 }
 
 .explanation {
   width: 100%;
-  height: 45%;
+  margin: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .explanation-top {
+  width: 100%;
   margin-bottom: 10px;
   font-size: 40px;
   font-weight: bold;
@@ -27,19 +29,20 @@
 }
 
 .explanation-middle {
+  width: 100%;
   font-size: 25px;
   margin-bottom: 10px;
   color: #919191;
 }
 
 .explanation-bottom {
+  width: 100%;
   font-size: 25px;
   font-family: sans-serif;
 }
 
 .how-to-use {
   width: 100%;
-  height: 55%;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -47,9 +50,60 @@
 
 .use {
   width: calc((100% - 40px) / 3);
+  height: 300px;
   font-size: 20px;
   font-family: sans-serif;
   background-color: #ffffff;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
   border-radius: 9px;
+}
+
+
+/* 415px〜1024px*/
+@media (max-width: 1024px) {
+  .how-to-use {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .use {
+    width: calc((80% - 40px) / 2);
+    margin-bottom: 30px;
+  }
+}
+
+
+/* 〜414px*/
+@media (max-width: 414px) {
+  .index-wrapper {
+    height: 80vh;
+  }
+
+  .explanation {
+    margin: 10px;
+    padding: 0 10px;
+  }
+
+  .explanation-top {
+    font-size: 33px;
+  }
+  
+  .explanation-middle {
+    font-size: 15px;
+  }
+  
+  .explanation-bottom {
+    font-size: 15px;
+  }
+  
+  .how-to-use {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .use {
+    width: 90%;
+    height: 280px;
+    margin-bottom: 20px;
+  }
 }

@@ -16,8 +16,6 @@
   height: 85vh;
   padding: 20px;
   overflow: scroll;
-  
-  
 }
 
 
@@ -115,4 +113,61 @@
   font-size: 20px;
   font-family: sans-serif;
   text-align: center;
+}
+
+
+
+/* 281〜896px*/
+@media (max-width: 896px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+   }
+   
+  .main {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    overflow: scroll;
+  }
+  
+  .form-contents {
+    width: 100%;
+  }
+
+  .title-area {
+    width: 100%;
+  }
+
+  .text-area {
+    width: 100%;
+  }
+
+  .tag-area {
+    width: 100%;
+  }
+}
+
+
+/* 〜280px*/
+@media (max-width: 280px) {
+  .form-contents {
+    padding: 10px 10px;
+  }
+  
+  .label-wrap {
+    font-size: 20px;
+  }
+
+  .title-area {
+    font-size: 15px;
+  }
+
+  .text-area {
+    font-size: 15px;
+  }
+
+  .tag-area {
+    font-size: 15px;
+  }
 }

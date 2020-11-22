@@ -84,3 +84,27 @@
   color: #999;
   text-align: right;
 }
+
+
+/* 541px〜768px*/
+@media (max-width: 768px) {
+  .publish-content {
+    width: calc((100% - 40px) / 2);
+  }
+}
+
+
+/* 〜540px*/
+@media (max-width: 540px) {
+  .publish-wrapper {
+    height: 80vh;
+  }
+  
+  .contents-wrapper {
+    justify-content: center;
+  }
+  
+  .publish-content {
+    width: 100%;
+  }
+}

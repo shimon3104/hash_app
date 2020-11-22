@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :publish, :search_title, :search_text ]
   before_action :set_note, only: [:edit, :show, :update, :destroy]
-  before_action :set_notes, only: [:new, :edit, :search_title_user, :search_text_user, :search_tag_user]
+  before_action :set_notes, only: [:new, :create, :edit, :update, :search_title_user, :search_text_user, :search_tag_user]
   before_action :set_keyword, only: [:search_title, :search_text, :search_title_user, :search_text_user, :search_tag_user]
   before_action :move_to_index, only: [:edit, :update, :destroy]
 
@@ -18,7 +18,7 @@ class NotesController < ApplicationController
       @note.save
       return redirect_to user_path(@note.user_id)
     else 
-      render "new"
+      render action: :new
     end
   end
 
@@ -46,7 +46,7 @@ class NotesController < ApplicationController
       @note_tag.save
       return redirect_to user_path(@note.user_id)
     else
-      render "edit"
+      render action: :edit
     end
   end
 

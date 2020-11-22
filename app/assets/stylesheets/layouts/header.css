@@ -25,11 +25,12 @@ header {
   height: 100%;
   padding: 5px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: #ffffff;
   border: double 5px #aac5de;
   border-radius: 9px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .publish-link {
@@ -62,10 +63,150 @@ header {
   background-color: #ffffff;
   border-bottom: solid 6px #aac5de;
   border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header-right-content a {
   font-size: 15px;
   font-family: sans-serif;
+  font-weight: bold;
   color: black; 
+  display: block;
+}
+
+
+/* 769px〜959px*/
+@media (max-width: 959px) {
+  header {
+    height: 30vh;
+  }
+
+  .top-link {
+    font-size: 40px;
+  }
+  .publish-link {
+    font-size: 25px;
+  }
+  
+  .publish-comment {
+    font-size: 15px;
+  }
+  
+  .header-right-content a {
+    font-size: 11px;
+  }
+}
+
+
+/* 668px〜768px*/
+@media (max-width: 768px) {
+  header {
+    height: 20vh;
+  }
+}
+
+
+/* 569〜667px*/
+@media (max-width: 667px) {
+  .top-link {
+    font-size: 35px;
+  }
+
+  .header-middle {
+    height: 80%;
+    text-align: center;
+  }
+  .publish-link {
+    font-size: 20px;
+  }
+  
+  .publish-comment {
+    font-size: 10px; 
+  }
+  
+  .header-right-content {
+    border-bottom: solid 4px #aac5de;
+    display: table;
+    line-height: 80%;
+  }
+  
+  .header-right-content a {
+    font-size: 8px;
+  }
+}
+
+
+/* 361〜568px */
+@media (max-width: 568px) {
+  .publish-link {
+    font-size: 18px;
+  }
+  
+  .publish-comment {
+    font-size: 10px; 
+  }
+  
+  .header-right-content {
+    width: 90%;
+  }
+}
+
+
+/* 321〜360px */
+@media (max-width: 360px) {
+  .top-link {
+    font-size: 30px;
+  }
+
+  .header-middle {
+    height: 70%;
+  }
+  .publish-link {
+    font-size: 15px;
+  }
+  
+  .publish-comment {
+    font-size: 8px; 
+  }
+}
+
+
+/* 281〜320px */
+@media (max-width: 320px) {
+  .header-middle {
+    height: 70%;
+  }
+  .publish-link {
+    font-size: 12px;
+  }
+  
+  .header-right-content {
+    width: 100%;
+  }
+}
+
+
+/* 〜280px*/
+@media (max-width: 280px) {
+  header {
+    padding: 5px 10px;
+  }
+
+  .top-link {
+    font-size: 20px;
+  }
+  
+  .header-middle {
+    line-height: 90%;
+  }
+
+  .header-right {
+    width: 30%;
+  }
+
+  .header-right-content a {
+    font-size: 5px;
+  }
 }
