@@ -83,7 +83,7 @@
 
 .search-result {
   width: 80%;
-  height: 200px;
+  height: 400px;
   padding: 10px;
   margin-bottom:50px;
   font-size: 20px;
@@ -95,7 +95,7 @@
 }
 
 .result-top {
-  height: 30%;
+  height: 40%;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
@@ -103,12 +103,21 @@
 }
 
 .result-titles {
+  height: 50%;
   display: flex;
+  overflow:scroll;
+  flex-wrap: wrap;
 }
+
 
 .title {
   margin-right: 20px;
   font-size: 25px;
+  display: table;
+}
+
+.left {
+  display: table;
 }
 
 .right {
@@ -117,11 +126,14 @@
 }
 
 .result-tags {
+  height: 50%;
   color: #919191;
   font-size: 20px;
   font-family: sans-serif;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
+  overflow:scroll;
 }
 
 .result-tag {
@@ -129,7 +141,7 @@
 }
 
 .result-text {
-  height: 70%;
+  height: 60%;
   overflow: hidden;
   word-break: keep-all;
 }
@@ -146,11 +158,6 @@
   margin: 50px 0;
 }
 
-.result-top {
-  display: flex;
-  flex-direction: column;
-}
-
 .search-user-tag {
   padding: 5px;
   margin-bottom: 20px;
@@ -164,7 +171,7 @@
 }
 
 .result-tag-note {
-  height: 150px;
+  height: 350px;
   padding: 10px;
   margin-bottom: 20px;
   font-size: 20px;
@@ -183,6 +190,8 @@
 .note-user-title {
   font-size: 25px;
   display: flex;
+  overflow:scroll;
+  flex-wrap: wrap;
 }
 
 .note-user-text {

@@ -50,7 +50,7 @@
 
 .use {
   width: calc((100% - 40px) / 3);
-  height: 300px;
+  height: 400px;
   padding: 10px;
   background-color: #ffffff;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
@@ -59,19 +59,19 @@
 
 .use-sentence{
   width: 100%;
-  height: 30%;
+  height: 20%;
   font-size: 20px;
   font-family: sans-serif;
 }
 
 .use-image {
   width: 100%;
-  height: 70%;
+  height: 80%;
   border: 1px solid;
 }
 
 
-/* 415px〜1024px*/
+/* 668px〜1024px*/
 @media (max-width: 1024px) {
   .how-to-use {
     flex-wrap: wrap;
@@ -79,13 +79,17 @@
     align-items: center;
   }
   .use {
-    width: calc((80% - 40px) / 2);
+    width: calc((100% - 40px) / 2);
     margin-bottom: 30px;
   }
-
-  
 }
 
+/* 415px〜667px*/
+@media (max-width: 667px) {
+  .use-sentence{
+    font-size: 15px;
+  }
+}
 
 /* 361〜414px*/
 @media (max-width: 414px) {
