@@ -51,7 +51,7 @@
   <div class="show-wrapper">
     <div class="show-contents">
       <div class='show-title'>
-        <%= @note.title %>
+        <%= safe_join(@note.title.split("\n"),tag(:br)) %>
       </div>
       <div class='show-tags'>
         <%@note.tags.each do |tag| %>
@@ -61,7 +61,7 @@
         <%end%>
       </div>
       <div class='show-text'>
-        <%= @note.text %>
+        <%= safe_join(@note.text.split("\n"),tag(:br)) %>
       </div>
       <div class='show-user' >
         <%= "by #{@note.user.nickname}" %>

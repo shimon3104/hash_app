@@ -21,7 +21,7 @@
           <% end %>
         </div>
         <div class='content-text'>
-          <%= note.text %>
+          <%= safe_join(note.text.split("\n"),tag(:br)) %>
         </div>
         <%if user_signed_in? %>
           <% if note.user_id == current_user.id %>
