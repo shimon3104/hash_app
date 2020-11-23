@@ -1,6 +1,6 @@
 /* 検索フォーム */
-/* notes/ publish, search_title, search_text, search_user _title, search_user _text, search_user_tag */
-/* tags/ show,search */
+/* notes/ publish, search_title, search_text, search_user_title, search_user_text, search_user_tag */
+/* tags/ show, search */
 /* users/ show */
 
 .search-wrapper {
@@ -30,6 +30,9 @@
 }
 
 /* 検索結果 */
+/* notes/ search_title, search_text, search_user_title, search_user_text, search_user_tag */
+/* tags/ search */
+
 .keyword {
   padding: 5px;
   margin: 0 auto;
@@ -47,11 +50,14 @@
   color: #006eff;
 }
 
+
+/* 公開ノートタグ検索結果 */
+/* tags/search */
+
 .search-tag {
-  width: calc((100% - 40px) / 5);
-  height: 40px;
+  display: table;
   padding: 5px;
-  margin-bottom: 20px;
+  margin: 10px;
   background-color: #ffffff;
   border-radius: 9px;
   text-align: center;
@@ -62,63 +68,60 @@
   font-family: sans-serif;
   color:#006eff;
 }
-/* notes/ search_title, search_text */
-/* tags/ show,search */
 
+/* ユーザーノート検索結果 */
+/* notes/ _search_user_result */
+/* notes/ search_user_title, search_user_text, search_user_tag */
 
-
-
-
-/* 検索結果 */
-/* notes/ search_user _title, search_user _text */
 .search-results {
   width: 100%;
-  height: 100%;
-  margin-top: 20px;
+  margin: 20px 0;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .search-result {
-  width: 70%;
-  height: 50%;
+  width: 80%;
+  height: 200px;
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom:50px;
   font-size: 20px;
   font-family: sans-serif;
   background-color: #ffffff;
   border-radius: 9px;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .result-top {
+  height: 30%;
   margin-bottom: 10px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .result-titles {
-  font-size: 25px;
-  margin-right: 20px;
   display: flex;
 }
 
 .title {
-  font-weight: bold;
-}
-
-.left {
-  margin-right: 7px;
+  margin-right: 20px;
+  font-size: 25px;
 }
 
 .right {
+  font-weight: bold;
   color:#006eff; 
 }
 
 .result-tags {
   color: #919191;
+  font-size: 20px;
+  font-family: sans-serif;
   display: flex;
+  justify-content: flex-end;
 }
 
 .result-tag {
@@ -126,11 +129,12 @@
 }
 
 .result-text {
-  border: solid 1px;
+  height: 70%;
+  overflow: hidden;
   word-break: keep-all;
 }
 
-/* 検索結果 */
+/* ユーザーノート検索結果 */
 /* notes/search_user_tag */
 
 .search-tag-results {
@@ -140,6 +144,11 @@
 
 .search-tag-result {
   margin: 50px 0;
+}
+
+.result-top {
+  display: flex;
+  flex-direction: column;
 }
 
 .search-user-tag {
@@ -173,7 +182,6 @@
 
 .note-user-title {
   font-size: 25px;
-  margin-right: 20px;
   display: flex;
 }
 
@@ -181,3 +189,102 @@
   height: 70%;
   overflow: hidden;
 }
+
+
+/* 375〜414px*/
+@media (max-width: 414px) {
+  .search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search-result {
+    width: 100%;
+    font-size: 17px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .result-tags {
+    font-size: 16px;
+  }
+}
+
+
+/* 361〜375px*/
+@media (max-width: 375px) {
+  .search-input {
+    width: 200px;
+  }
+  
+  .search-result {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .result-tags {
+    font-size: 15px;
+  }
+
+  .search-user-tag {
+    font-size: 15px;
+    text-align: start;
+  }
+  
+  .note-user-text {
+    font-size: 16px;
+  }
+}
+
+
+/* 280〜360px*/
+@media (max-width: 360px) {
+  .search-input {
+    width: 250px;
+  }
+  
+  .search-result {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .title {
+    font-size: 19px;
+  }
+
+  .result-tags {
+    font-size: 14px;
+  }
+}
+
+
+/* 〜280px*/
+@media (max-width: 280px) {
+  .search-form {
+    font-size: 15px;
+  }
+
+  .search-input {
+    width: 170px;
+  }
+
+  .search-btn {
+    width: 70px;
+  }
+
+  .keyword {
+    font-size: 15px;
+  }
+
+  .content-title a {
+    font-size: 20px;
+  }
+}
+

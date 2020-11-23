@@ -1,0 +1,26 @@
+<div class="search-results">
+  <% @search_notes.each do |note|%>
+    <% if note.user_id == current_user.id %>
+      <div class="search-result">
+        <div class="result-top">
+          <div class="result-titles">
+            <div class="title left">
+            タイトル:
+            </div>
+            <%= link_to note.title, edit_note_path(note.id), class: "title right" %>
+          </div>
+          <div class="result-tags">
+            <% note.tags.each do |tag| %>
+              <div class="result-tag">
+                <%= "##{tag.name}" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="result-text">
+          <%= note.text %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

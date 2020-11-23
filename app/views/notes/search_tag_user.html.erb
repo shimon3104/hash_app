@@ -21,7 +21,7 @@
       <% @search_tags.each do |tag|%>
       <div class="search-tag-result">
         <div class="search-user-tag">
-          <%= "# #{tag.name}を持つ#{current_user.nickname}のノート" %>
+          <%= "「# #{tag.name}」を持つ#{current_user.nickname}のノート" %>
         </div>
         <% tag.notes.each do |note| %>
           <% if note.user_id == current_user.id %>

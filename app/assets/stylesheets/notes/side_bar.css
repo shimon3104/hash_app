@@ -1,13 +1,7 @@
-.wrapper {
-  display: flex;
-  background: radial-gradient(
-    circle 500px at center,
-    #57f6fe 0%,
-    #89e1f7 50%,
-    #70bff8 100%
-  );
- }
- 
+/* ユーザー画面共通部分 */
+/* notes/_side_bar  */
+/* notes/new, edit、 search_user_title, search_user_text, search_user_tag */
+
 .side_bar {
   width: 200px;
   height: 85vh;
@@ -92,4 +86,27 @@
 .note-user {
  margin-top: 10px;
  text-align: right;
+}
+
+
+
+/* 〜896px*/
+@media (max-width: 896px) {
+  .side_bar {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .side-bar-header {
+    height: 150px;
+  }
+
+  .note-link a{
+    font-size: 18px;
+  }
+
+  .notes {
+    height: 100%;
+  }
+
 }

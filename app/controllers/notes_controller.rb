@@ -1,6 +1,8 @@
 class NotesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :publish]
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show, :publish, :search_title, :search_text ]
+  before_action :set_note, only: [:edit, :show, :update, :destroy]
+  before_action :set_notes, only: [:new, :create, :edit, :update, :search_title_user, :search_text_user, :search_tag_user]
+  before_action :set_keyword, only: [:search_title, :search_text, :search_title_user, :search_text_user, :search_tag_user]
   before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
@@ -8,8 +10,6 @@ class NotesController < ApplicationController
 
   def new
     @note= NotesTag.new
-    notes = Note.where(user_id: current_user.id)
-    @notes = notes.order(created_at: :desc)
   end
 
   def create
@@ -18,7 +18,7 @@ class NotesController < ApplicationController
       @note.save
       return redirect_to user_path(@note.user_id)
     else 
-      render "new"
+      render action: :new
     end
   end
 
@@ -30,12 +30,10 @@ class NotesController < ApplicationController
   end
 
   def edit
-    notes = Note.where(user_id: current_user.id)
-    @notes = notes.order(created_at: :desc)
     tag_name = []
     @note.tags.each do |tag|
-      tag_n = tag.name
-      tag_name.push(tag_n)
+      t_name = tag.name
+      tag_name.push(t_name)
     end
     @tag_names = tag_name.join(',')
     @note_tag = NotesTag.new(title: @note.title, text: @note.text, status: @note.status, user_id: @note.user_id, name: @tag_names)
@@ -48,7 +46,7 @@ class NotesController < ApplicationController
       @note_tag.save
       return redirect_to user_path(@note.user_id)
     else
-      render "edit"
+      render action: :edit
     end
   end
 
@@ -63,33 +61,22 @@ class NotesController < ApplicationController
 
   def search_title
     @search_notes = Note.search_title(params[:keyword])
-    @keyword = params[:keyword]
   end
 
   def search_text
     @search_notes = Note.search_text(params[:keyword])
-    @keyword = params[:keyword]
   end
 
   def search_title_user
     @search_notes = Note.search_title_user(params[:keyword])
-    notes = Note.where(user_id: current_user.id)
-    @notes = notes.order(created_at: :desc)
-    @keyword = params[:keyword]
   end
 
   def search_text_user
     @search_notes = Note.search_text_user(params[:keyword])
-    notes = Note.where(user_id: current_user.id)
-    @notes = notes.order(created_at: :desc)
-    @keyword = params[:keyword]
   end
 
   def search_tag_user
     @search_tags = Note.search_tag_user(params[:keyword])
-    notes = Note.where(user_id: current_user.id)
-    @notes = notes.order(created_at: :desc)
-    @keyword = params[:keyword]
   end
 
   private
@@ -98,7 +85,20 @@ class NotesController < ApplicationController
   end
   
   def set_note
-    @note = Note.find(params[:id])
+    if Note.find_by(id: params[:id]).nil?
+      return redirect_to root_path
+    else
+      @note = Note.find(params[:id])
+    end
+  end
+
+  def set_notes
+    notes = Note.where(user_id: current_user.id)
+    @notes = notes.order(created_at: :desc)
+  end
+
+  def set_keyword
+    @keyword = params[:keyword]
   end
 
   def move_to_index
