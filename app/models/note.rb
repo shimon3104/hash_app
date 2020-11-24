@@ -6,7 +6,7 @@ class Note < ApplicationRecord
   enum status:{非公開: 0, 公開する: 1}
 
   with_options presence: true do
-    validates :title
+    validates :title,length: { maximum: 50, message: 'is too long (maximum is 50 characters)' }
     validates :text
   end
 

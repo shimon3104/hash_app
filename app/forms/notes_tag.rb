@@ -3,7 +3,7 @@ class NotesTag
   include ActiveModel::Model
   attr_accessor :title, :text, :user_id, :status, :name
   with_options presence: true do
-    validates :title
+    validates :title,length: { maximum: 50, message: 'is too long (maximum is 50 characters)' }
     validates :text
     validates :name
   end
