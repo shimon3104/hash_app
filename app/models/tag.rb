@@ -5,7 +5,7 @@ class Tag < ApplicationRecord
   validates :name, presence: true, uniqueness: { case_sensitive: true }
 
   def self.search(search)
-    if search != ""
+    if search != ''
       Tag.where('name LIKE(?)', "%#{search}%").order('created_at DESC')
     else
       Tag.order('created_at DESC')

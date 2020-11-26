@@ -36,7 +36,7 @@ RSpec.describe NotesTag, type: :model do
       it 'titleが50文字以上だと登録できない' do
         @note.title = '123456789012345678901234567890123456789012345678901'
         @note.valid?
-        expect(@note.errors.full_messages).to include("Title is too long (maximum is 50 characters)")
+        expect(@note.errors.full_messages).to include('Title is too long (maximum is 50 characters)')
       end
 
       it 'userが紐付いていないと登録できない' do

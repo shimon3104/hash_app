@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :publish, :search_title, :search_text ]
+  before_action :authenticate_user!, except: [:index, :show, :publish, :search_title, :search_text]
   before_action :set_note, only: [:edit, :show, :update, :destroy]
   before_action :set_notes, only: [:new, :create, :edit, :update, :search_title_user, :search_text_user, :search_tag_user]
   before_action :set_keyword, only: [:search_title, :search_text, :search_title_user, :search_text_user, :search_tag_user]
@@ -9,24 +9,22 @@ class NotesController < ApplicationController
   end
 
   def new
-    @note= NotesTag.new
+    @note = NotesTag.new
   end
 
   def create
     @note = NotesTag.new(note_tag_params)
     if @note.valid?
       @note.save
-      return redirect_to user_path(@note.user_id)
-    else 
+      redirect_to user_path(@note.user_id)
+    else
       render action: :new
     end
   end
 
   def show
     @notes = Note.order('created_at DESC')
-    unless @note.公開する?
-      authenticate_user!
-    end
+    authenticate_user! unless @note.公開する?
   end
 
   def edit
@@ -44,7 +42,7 @@ class NotesController < ApplicationController
     @note_tag = NotesTag.new(note_tag_params)
     if @note_tag.valid?
       @note_tag.save
-      return redirect_to user_path(@note.user_id)
+      redirect_to user_path(@note.user_id)
     else
       render action: :edit
     end
@@ -80,13 +78,14 @@ class NotesController < ApplicationController
   end
 
   private
+
   def note_tag_params
     params.require(:notes_tag).permit(:title, :text, :status, :name).merge(user_id: current_user.id)
   end
-  
+
   def set_note
     if Note.find_by(id: params[:id]).nil?
-      return redirect_to root_path
+      redirect_to root_path
     else
       @note = Note.find(params[:id])
     end
@@ -102,8 +101,6 @@ class NotesController < ApplicationController
   end
 
   def move_to_index
-    unless @note.user_id == current_user.id
-      redirect_to root_path
-    end
+    redirect_to root_path unless @note.user_id == current_user.id
   end
 end

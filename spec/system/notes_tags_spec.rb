@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe "ノートの新規作成", type: :system do
+RSpec.describe 'ノートの新規作成', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @note = FactoryBot.build(:note)
     @tag = FactoryBot.build(:tag)
   end
 
-  context 'ノートの新規作成ができるとき'do
+  context 'ノートの新規作成ができるとき' do
     it 'ログインしたユーザーはノートの新規作成ができる' do
       # ログインする
       visit new_user_session_path
@@ -27,19 +27,19 @@ RSpec.describe "ノートの新規作成", type: :system do
       fill_in 'notes_tag_title', with: @note.title
       fill_in 'notes_tag_text', with: @note.text
       fill_in 'notes_tag_name', with: @tag.name
-      find("#notes_tag_status").find("option[value='非公開']").select_option
+      find('#notes_tag_status').find("option[value='非公開']").select_option
       # 送信するとNoteモデルのカウントが1上がることを確認する
-      expect{
+      expect do
         find('input[name="commit"]').click
-      }.to change { Note.count }.by(1)
+      end.to change { Note.count }.by(1)
       # ユーザーページに遷移することを確認する
       expect(current_path).to eq user_path(@user.id)
       # ユーザーページに先ほど作成したノートが存在することを確認する
       expect(page).to have_content(@note.title)
     end
   end
-  
-  context 'ノートの新規作成ができないとき'do
+
+  context 'ノートの新規作成ができないとき' do
     it 'ログインしていないとノートの新規作成ページに遷移できない' do
       # トップページに遷移する
       visit root_path
@@ -49,7 +49,7 @@ RSpec.describe "ノートの新規作成", type: :system do
   end
 end
 
-RSpec.describe "ノートの編集", type: :system do
+RSpec.describe 'ノートの編集', type: :system do
   before do
     @note1 = FactoryBot.create(:note, :note_with_tags)
     @tag1_id = @note1.tags.ids
@@ -82,23 +82,23 @@ RSpec.describe "ノートの編集", type: :system do
       ).to eq @note1.text
       expect(
         find('#notes_tag_name').value
-      ).to eq @tag1.pluck(:name)[0]  
+      ).to eq @tag1.pluck(:name)[0]
       expect(
-        find("#notes_tag_status").value
+        find('#notes_tag_status').value
       ).to eq @note1.status
       # ノート１の内容を編集する
-      fill_in 'notes_tag_title', with: "title_test"
-      fill_in 'notes_tag_text', with: "text_test"
-      fill_in 'notes_tag_name', with: "tag_name_test"
-      find("#notes_tag_status").find("option[value='非公開']").select_option
+      fill_in 'notes_tag_title', with: 'title_test'
+      fill_in 'notes_tag_text', with: 'text_test'
+      fill_in 'notes_tag_name', with: 'tag_name_test'
+      find('#notes_tag_status').find("option[value='非公開']").select_option
       # 編集してもNoteモデルのカウントは変わらないことを確認する
-      expect{
+      expect do
         find('input[name="commit"]').click
-      }.to change { Note.count }.by(0)
+      end.to change { Note.count }.by(0)
       # ユーザーページに遷移したことを確認する
       expect(current_path).to eq user_path(@note1.user.id)
       # ユーザーページに先ほど投稿した内容のノートが存在することを確認する
-      expect(page).to have_content("title_test")
+      expect(page).to have_content('title_test')
     end
   end
 
@@ -127,7 +127,7 @@ RSpec.describe "ノートの編集", type: :system do
   end
 end
 
-RSpec.describe "ノートの削除", type: :system do
+RSpec.describe 'ノートの削除', type: :system do
   before do
     @note1 = FactoryBot.create(:note, :note_with_tags)
     @tag1_id = @note1.tags.ids
@@ -150,7 +150,7 @@ RSpec.describe "ノートの削除", type: :system do
       # ユーザーページにノート1が存在することを確認する
       expect(page).to have_content(@note1.title)
       # ノート1の編集ページに移動する
-      visit edit_note_path(@note1.id)  
+      visit edit_note_path(@note1.id)
       # すでに作成済みの内容がフォームに入っていることを確認する
       expect(
         find('#notes_tag_title').value
@@ -160,20 +160,20 @@ RSpec.describe "ノートの削除", type: :system do
       ).to eq @note1.text
       expect(
         find('#notes_tag_name').value
-      ).to eq @tag1.pluck(:name)[0]  
+      ).to eq @tag1.pluck(:name)[0]
       expect(
-        find("#notes_tag_status").value
+        find('#notes_tag_status').value
       ).to eq @note1.status
       # ノート１の編集ページに「ノートの削除」ボタンがあることを確認する
-      expect(page).to have_content("ノートの削除")
+      expect(page).to have_content('ノートの削除')
       # ノート1を削除するとレコードの数が1減ることを確認する
-      expect{
-        click_on "ノートの削除"
-      }.to change { Note.count }.by(-1)
+      expect do
+        click_on 'ノートの削除'
+      end.to change { Note.count }.by(-1)
       # ユーザーページに遷移したことを確認する
       visit user_path(@note1.user.id)
       # ページにはノート1の内容が存在しないことを確認する
-      expect(page).to have_no_content("#{@note1.title}")
+      expect(page).to have_no_content(@note1.title.to_s)
     end
   end
 
@@ -226,11 +226,11 @@ RSpec.describe 'ノートの公開', type: :system do
       fill_in 'notes_tag_title', with: @note.title
       fill_in 'notes_tag_text', with: @note.text
       fill_in 'notes_tag_name', with: @tag.name
-      find("#notes_tag_status").find("option[value='公開する']").select_option
+      find('#notes_tag_status').find("option[value='公開する']").select_option
       # 送信しユーザーページに遷移する
-      expect{
+      expect do
         find('input[name="commit"]').click
-      }.to change { Note.count }.by(1)
+      end.to change { Note.count }.by(1)
       expect(current_path).to eq user_path(@user.id)
       expect(page).to have_content(@note.title)
       # 公開ノート一覧ページに移動する
@@ -257,11 +257,11 @@ RSpec.describe 'ノートの公開', type: :system do
       fill_in 'notes_tag_title', with: @note.title
       fill_in 'notes_tag_text', with: @note.text
       fill_in 'notes_tag_name', with: @tag.name
-      find("#notes_tag_status").find("option[value='非公開']").select_option
+      find('#notes_tag_status').find("option[value='非公開']").select_option
       # 送信しユーザーページに遷移する
-      expect{
+      expect do
         find('input[name="commit"]').click
-      }.to change { Note.count }.by(1)
+      end.to change { Note.count }.by(1)
       expect(current_path).to eq user_path(@user.id)
       expect(page).to have_content(@note.title)
       # 公開ノート一覧ページに移動する
@@ -272,7 +272,7 @@ RSpec.describe 'ノートの公開', type: :system do
   end
 end
 
-RSpec.describe "ノートの詳細", type: :system do
+RSpec.describe 'ノートの詳細', type: :system do
   before do
     @note1 = FactoryBot.create(:note, :note_with_tags)
     @tag1_id = @note1.tags.ids
@@ -305,9 +305,9 @@ RSpec.describe "ノートの詳細", type: :system do
       ).to eq @note1.text
       expect(
         find('#notes_tag_name').value
-      ).to eq @tag1.pluck(:name)[0]  
+      ).to eq @tag1.pluck(:name)[0]
       expect(
-        find("#notes_tag_status").value
+        find('#notes_tag_status').value
       ).to eq @note1.status
     end
 
