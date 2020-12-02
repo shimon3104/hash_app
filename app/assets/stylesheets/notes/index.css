@@ -93,10 +93,6 @@
 
 /* 361〜414px*/
 @media (max-width: 414px) {
-  .index-wrapper {
-    height: 80vh;
-  }
-
   .explanation {
     margin: 10px;
     padding: 0 10px;
@@ -130,5 +126,13 @@
 @media (max-width: 360px) {
   .use-sentence{
     font-size: 13px;
+  }
+}
+
+
+/*height ~540px*/
+@media (max-height: 540px) {
+  .index-wrapper {
+    height: 75vh;
   }
 }

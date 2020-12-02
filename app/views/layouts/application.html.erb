@@ -12,37 +12,48 @@
 
   <body>
     <header>
-      <div class='header-left'>
-        <%= link_to "HASH", root_path, class: "top-link" %>
-      </div>
-      <div class='header-middle'>
-        <div class='header-middle-top'>
-          <%= link_to 'To Published Notes', publish_notes_path, class: "publish-link" %>
+      <div class="header-wrap">
+        <div class='header-left'>
+          <%= link_to "HASH", root_path, class: "top-link" %>
         </div>
-        <div class='header-middle-bottom'>
-          <P class='publish-comment'>公開されたノートへ</p>
+        <div class='header-middle'>
+          <div class='header-middle-top'>
+            <%= link_to 'To Published Notes', publish_notes_path, class: "publish-link" %>
+          </div>
+          <div class='header-middle-bottom'>
+            <P class='publish-comment'>公開されたノートへ</p>
+          </div>
+        </div>
+        <div class="background-white" id="lists">
+          <div class="list-btn">
+          <% if user_signed_in? %>
+            リスト
+          <% else %>
+            新規登録はこちら
+          <% end %>
+          </div>
         </div>
       </div>
-      <div class='header-right'>
+      <ul class='header-right hidden' id="pull-down">
         <% if user_signed_in? %>
-          <div class='header-right-content'>
-            <%= link_to "#{current_user.nickname}のページへ", user_path(current_user.id), class: "user-nickname" %>
-          </div>
-          <div class='header-right-content'>
+          <li class='header-right-content'>
+            <%= link_to "#{current_user.nickname}のページ", user_path(current_user.id), class: "user-nickname" %>
+          </li>
+          <li class='header-right-content'>
             <%= link_to 'ユーザー情報編集', "/users/#{current_user.id}/edit", class: "user-edit" %>
-          </div>
-          <div class='header-right-content'>
+          </li>
+          <li class='header-right-content'>
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
-          </div>
+          </li>
         <% else%>
-          <div class='header-right-content'>
+          <li class='header-right-content'>
             <%= link_to 'ログイン', new_user_session_path, class: "login" %>
-          </div>
-          <div class='header-right-content'>
+          </li>
+          <li class='header-right-content'>
             <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
-          </div>
+          </li>
         <% end %> 
-      </div>
+      </ul>
     </header>
     <%= yield %>
   </body>
