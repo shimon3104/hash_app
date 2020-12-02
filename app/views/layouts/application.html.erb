@@ -25,7 +25,13 @@
           </div>
         </div>
         <div class="background-white" id="lists">
-          <div class="list-btn">リスト</div>
+          <div class="list-btn">
+          <% if user_signed_in? %>
+            リスト
+          <% else %>
+            新規登録はこちら
+          <% end %>
+          </div>
         </div>
       </div>
       <ul class='header-right hidden' id="pull-down">

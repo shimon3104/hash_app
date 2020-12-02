@@ -5,7 +5,6 @@ class NotesTag
   with_options presence: true do
     validates :title, length: { maximum: 50, message: 'is too long (maximum is 50 characters)' }
     validates :text
-    validates :name
   end
 
   def save
